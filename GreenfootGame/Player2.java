@@ -16,19 +16,7 @@ public class Player2 extends Actor
      */
     public void act() 
     {
-        deltaX = 0;
-        if(Greenfoot.isKeyDown("a"))
-        {
-            deltaX = deltaX -5;
-        }    
-        if(Greenfoot.isKeyDown("d"))
-        {
-            deltaX = deltaX +5;
-        } 
-        if (isTouching(Platform.class) && Greenfoot.isKeyDown("w"))
-        {
-            deltaY = -15;
-        }
+        
         setLocation(getX() + deltaX, getY() + deltaY);
         
         if(isTouching(Platform.class))
@@ -41,5 +29,32 @@ public class Player2 extends Actor
             deltaY = deltaY + 1;
             
         }
+        hitCollectable();
+        movement();
     }
+    public void movement()
+    {
+        deltaX = 0;
+        
+        if(Greenfoot.isKeyDown("a"))
+        {
+            deltaX = deltaX -5;
+        }    
+        if(Greenfoot.isKeyDown("d"))
+        {
+            deltaX = deltaX +5;
+        }   
+        if (isTouching(Platform.class) && Greenfoot.isKeyDown("w"))
+        {
+            deltaY = -15;
+        }
+    }
+    public void hitCollectable()
+    {
+       if(getOneIntersectingObject(Collectable.class) != null)
+       {
+            getWorld().removeObject(getOneIntersectingObject(Collectable.class));
+       } 
+    }
+    
 }

@@ -17,6 +17,25 @@ public class Player1 extends Actor
      */
     public void act() 
     {
+        
+        
+        
+        setLocation(getX() + deltaX, getY() + deltaY);
+        
+        if(isTouching(Platform.class))
+        {
+            deltaY = 0;
+        }
+        else
+        {
+            deltaY = deltaY + 1;
+        }
+        hitCollectable();
+        movement();
+        
+    }
+    public void movement()
+    {
         deltaX = 0;
         
         if(Greenfoot.isKeyDown("left"))
@@ -31,17 +50,13 @@ public class Player1 extends Actor
         {
             deltaY = -15;
         }
-        
-        
-        setLocation(getX() + deltaX, getY() + deltaY);
-        
-        if(isTouching(Platform.class))
-        {
-            deltaY = 0;
-        }
-        else
-        {
-            deltaY = deltaY + 1;
-        }
     }
+    public void hitCollectable()
+    {
+       if(getOneIntersectingObject(Collectable.class) != null)
+       {
+            getWorld().removeObject(getOneIntersectingObject(Collectable.class));
+       } 
+    }
+    
 }
