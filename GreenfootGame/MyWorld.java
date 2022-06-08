@@ -41,8 +41,5 @@ public class MyWorld extends World
         
         
     }
-    public void act()
-    {
-        Greenfoot.playSound("Tobu_Candyland_but_its_so_low_quality_it_hurts.mp3");
-    }
+    
 }
