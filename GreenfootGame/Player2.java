@@ -19,15 +19,15 @@ public class Player2 extends Actor
         deltaX = 0;
         if(Greenfoot.isKeyDown("a"))
         {
-            deltaX = deltaX -5;
+            deltaX = deltaX -6;
         }    
         if(Greenfoot.isKeyDown("d"))
         {
-            deltaX = deltaX +5;
+            deltaX = deltaX +6;
         } 
         if (isTouching(Platform.class) && Greenfoot.isKeyDown("w"))
         {
-            deltaY = -15;
+            deltaY = -12;
         }
         setLocation(getX() + deltaX, getY() + deltaY);
         
@@ -40,6 +40,10 @@ public class Player2 extends Actor
         {
             deltaY = deltaY + 1;
             
+        }
+        if(isTouching(Portal1.class))
+        {
+            setLocation(200, 100);
         }
     }
 }
