@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-
+    Portal1 portal1 = new Portal1();
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -33,11 +33,14 @@ public class MyWorld extends World
             platformX = platformX + platform.getImage().getWidth();
         }
         
-        Portal1 portal1 = new Portal1();
+        
         addObject(portal1, 600, 240);
         
         Portal2 portal2 = new Portal2();
         addObject(portal2, 200, 100);
+        
+        Button button = new Button();
+        addObject(button, 850, 240);
         
         
     }
