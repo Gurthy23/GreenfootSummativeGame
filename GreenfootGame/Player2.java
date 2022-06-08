@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player2 extends Actor
 {
+    static boolean touchingDoorP2 = false;
     int deltaX = 0;
     int deltaY = 0;
     /**
@@ -31,6 +32,7 @@ public class Player2 extends Actor
         }
         hitCollectable();
         movement();
+        doorwayLevel();
     }
     public void movement()
     {
@@ -56,5 +58,13 @@ public class Player2 extends Actor
             getWorld().removeObject(getOneIntersectingObject(Collectable.class));
        } 
     }
-    
+    public void doorwayLevel()
+    {
+        touchingDoorP2 = false;
+        if(isTouching(DoorwayP2.class))
+        {
+            touchingDoorP2 = true;
+
+        }
+    }
 }
