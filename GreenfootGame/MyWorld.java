@@ -23,12 +23,35 @@ public class MyWorld extends World
         
         Player2 player2 = new Player2();
         addObject(player2, 400, 240);
+        
+        Collectable collectable = new Collectable();
+        addObject(collectable, 500, 240);
+        
+        Lethal lethal = new Lethal();
+        addObject(lethal, 200, 240);
+        
+        DoorwayP1 doorwayp1 = new DoorwayP1();
+        addObject(doorwayp1, 600, 240);
+        
+        DoorwayP2 doorwayp2 = new DoorwayP2();
+        addObject(doorwayp2, 700, 240);
+        
         int platformX = 0;
         for(int i = 0; i < 16; i++)
         {
             Platform platform = new Platform();
             addObject(platform, platformX, 300);
             platformX = platformX + platform.getImage().getWidth();
+        }
+        
+    }
+    public void act()
+    {
+        boolean isP1TouchingDoor = Player1.touchingDoorP1;
+        boolean isP2TouchingDoor = Player2.touchingDoorP2;
+        if(isP1TouchingDoor  == true && isP2TouchingDoor == true)
+        {
+            Greenfoot.setWorld(new Level2());
         }
     }
 }

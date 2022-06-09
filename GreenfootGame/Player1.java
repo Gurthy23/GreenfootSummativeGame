@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player1 extends Actor
 {
-    
+    static boolean touchingDoorP1 = false;
     int deltaX = 0;
     int deltaY = 0;
     /**
@@ -16,6 +16,25 @@ public class Player1 extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
+    {
+        
+        
+        
+        setLocation(getX() + deltaX, getY() + deltaY);
+        
+        if(isTouching(Platform.class))
+        {
+            deltaY = 0;
+        }
+        else
+        {
+            deltaY = deltaY + 1;
+        }
+        hitCollectable();
+        movement();
+        doorwayLevel();
+    }
+    public void movement()
     {
         deltaX = 0;
         
@@ -31,17 +50,24 @@ public class Player1 extends Actor
         {
             deltaY = -15;
         }
-        
-        
-        setLocation(getX() + deltaX, getY() + deltaY);
-        
-        if(isTouching(Platform.class))
+        if(Greenfoot.isKeyDown("p"))
         {
-            deltaY = 0;
+            Greenfoot.setWorld(new Level2());
         }
-        else
+    }
+    public void hitCollectable()
+    {
+       if(getOneIntersectingObject(Collectable.class) != null)
+       {
+            getWorld().removeObject(getOneIntersectingObject(Collectable.class));
+       } 
+    }
+    public void doorwayLevel()
+    {
+        touchingDoorP1 = false;
+        if(isTouching(DoorwayP1.class))
         {
-            deltaY = deltaY + 1;
+            touchingDoorP1 = true;
         }
     }
 }
