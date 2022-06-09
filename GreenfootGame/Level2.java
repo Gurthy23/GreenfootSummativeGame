@@ -26,11 +26,13 @@ public class Level2 extends World
         Player2 player2 = new Player2();
         addObject(player2, 400, 300);
         
-        Collectable collectable = new Collectable();
-        addObject(collectable, 500, 300);
+        Collectable collectable1 = new Collectable();
+        addObject(collectable1, 500, 300);
+        Collectable collectable2 = new Collectable();
+        addObject(collectable2, 100, 300);
         
         Lethal lethal = new Lethal();
-        addObject(lethal, 200, 300);
+        addObject(lethal, 200, 325);
         int platformX = 0;
         for(int i = 0; i < 16; i++)
         {
