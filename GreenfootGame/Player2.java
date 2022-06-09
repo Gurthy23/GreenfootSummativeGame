@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player2 extends Actor
 {
+    static boolean touchingDoorP2 = false;
     int deltaX = 0;
     int deltaY = 0;
     /**
@@ -16,19 +17,9 @@ public class Player2 extends Actor
      */
     public void act() 
     {
-        deltaX = 0;
-        if(Greenfoot.isKeyDown("a"))
-        {
-            deltaX = deltaX -6;
-        }    
-        if(Greenfoot.isKeyDown("d"))
-        {
-            deltaX = deltaX +6;
-        } 
-        if (isTouching(Platform.class) && Greenfoot.isKeyDown("w"))
-        {
-            deltaY = -12;
-        }
+
+        
+
         setLocation(getX() + deltaX, getY() + deltaY);
         
         if(isTouching(Platform.class))
@@ -41,9 +32,48 @@ public class Player2 extends Actor
             deltaY = deltaY + 1;
             
         }
+
         if(isTouching(Portal1.class))
         {
             setLocation(200, 100);
+
+            
+        }
+        hitCollectable();
+            movement();
+            doorwayLevel();
+    }   
+    public void movement()
+    {
+        deltaX = 0;
+        
+        if(Greenfoot.isKeyDown("a"))
+        {
+            deltaX = deltaX -5;
+        }    
+        if(Greenfoot.isKeyDown("d"))
+        {
+            deltaX = deltaX +5;
+        }   
+        if (isTouching(Platform.class) && Greenfoot.isKeyDown("w"))
+        {
+            deltaY = -15;
+        }
+    }
+    public void hitCollectable()
+    {
+       if(getOneIntersectingObject(Collectable.class) != null)
+       {
+            getWorld().removeObject(getOneIntersectingObject(Collectable.class));
+       } 
+    }
+    public void doorwayLevel()
+    {
+        touchingDoorP2 = false;
+        if(isTouching(DoorwayP2.class))
+        {
+            touchingDoorP2 = true;
+
         }
     }
 }
