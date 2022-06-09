@@ -40,17 +40,21 @@ public class Player1 extends Actor
         
         if(Greenfoot.isKeyDown("left"))
         {
-            deltaX = deltaX -5;
+            deltaX = deltaX -4;
         }    
         if(Greenfoot.isKeyDown("right"))
         {
-            deltaX = deltaX +5;
+            deltaX = deltaX +4;
         }   
         if (isTouching(Platform.class) && Greenfoot.isKeyDown("up"))
         {
-            deltaY = -15;
-        }
+
+            deltaY = -16;
+            
+        } 
+
         if(Greenfoot.isKeyDown("p"))
+
         {
             Greenfoot.setWorld(new Level2());
         }
@@ -68,6 +72,10 @@ public class Player1 extends Actor
         if(isTouching(DoorwayP1.class))
         {
             touchingDoorP1 = true;
+        }
+        if(isTouching(Portal1.class))
+        {
+            setLocation(200, 100);
         }
     }
 }

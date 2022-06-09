@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-
+    Portal1 portal1 = new Portal1();
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -16,7 +16,9 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        
         super(900 , 600, 1); 
+        
         
         Player1 player1 = new Player1();
         addObject(player1, 300, 240);
@@ -44,6 +46,13 @@ public class MyWorld extends World
             platformX = platformX + platform.getImage().getWidth();
         }
         
+        addObject(portal1, 600, 240);
+        
+        Portal2 portal2 = new Portal2();
+        addObject(portal2, 200, 100);
+        
+        Button button = new Button();
+        addObject(button, 850, 240);
     }
     public void act()
     {
@@ -54,4 +63,5 @@ public class MyWorld extends World
             Greenfoot.setWorld(new Level2());
         }
     }
+    
 }

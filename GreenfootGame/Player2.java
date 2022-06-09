@@ -17,7 +17,9 @@ public class Player2 extends Actor
      */
     public void act() 
     {
+
         
+
         setLocation(getX() + deltaX, getY() + deltaY);
         
         if(isTouching(Platform.class))
@@ -30,10 +32,17 @@ public class Player2 extends Actor
             deltaY = deltaY + 1;
             
         }
+
+        if(isTouching(Portal1.class))
+        {
+            setLocation(200, 100);
+
+            
+        }
         hitCollectable();
-        movement();
-        doorwayLevel();
-    }
+            movement();
+            doorwayLevel();
+    }   
     public void movement()
     {
         deltaX = 0;
