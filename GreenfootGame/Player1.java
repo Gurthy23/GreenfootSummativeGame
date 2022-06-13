@@ -26,7 +26,7 @@ public class Player1 extends Actor
         
         
         
-        setLocation(getX() + deltaX, getY() + deltaY);
+        
         CollisionCheck();
         Gravity();
         hitCollectable();
@@ -38,15 +38,15 @@ public class Player1 extends Actor
         deltaX = 0;
         if(Greenfoot.isKeyDown("left"))
         {
-            deltaX = deltaX -4;
+            deltaX = deltaX -6;
         }    
         if(Greenfoot.isKeyDown("right"))
         {
-            deltaX = deltaX +4;
+            deltaX = deltaX +6;
         }   
         if (InAir == false && Greenfoot.isKeyDown("up"))
         {
-            deltaY = -10;
+            deltaY = -15;
         }
         
         
@@ -94,9 +94,9 @@ public class Player1 extends Actor
             {
                 moveToRightEdge(platformLeft);
             }
-            if (platformTop != null)
+           if (platformTop != null)
             {
-                moveToBottom(platformTop);
+               moveToBottom(platformTop);
             }
     }
     public void hitCollectable()
@@ -154,4 +154,5 @@ public class Player1 extends Actor
         setLocation(object.getX() + objectWidth / 2 + width / 2 - 1,getY());  
        
     }
+    
 }

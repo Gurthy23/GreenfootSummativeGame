@@ -23,7 +23,7 @@ public class Player2 extends Actor
      */
     public void act() 
     {
-        setLocation(getX() + deltaX, getY() + deltaY);
+        
         Gravity();
         CollisionCheck();
         hitCollectable();
@@ -35,15 +35,15 @@ public class Player2 extends Actor
         deltaX = 0;
         if(Greenfoot.isKeyDown("a"))
         {
-            deltaX = deltaX -4;
+            deltaX = deltaX -6;
         }    
         if(Greenfoot.isKeyDown("d"))
         {
-            deltaX = deltaX +4;
+            deltaX = deltaX +6;
         }   
         if (InAir == false && Greenfoot.isKeyDown("w"))
         {
-            deltaY = -10;
+            deltaY = -15;
         }
         
         
