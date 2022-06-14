@@ -10,7 +10,7 @@ public class Spikes extends Actor
 {
     private String[] imgs_;
     boolean isSpikeUp = false;
-    
+  
     /**
      * Act - do whatever the Spikes wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -44,15 +44,16 @@ public class Spikes extends Actor
     
     public boolean spikeUp()
     {
+        
         for(int i = 0; i < imgs_.length; i++)
-        {
+        {               
             setImage(imgs_[i]);
         }
         return true;
     }
     public boolean spikeDown()
     {
-        for(int i = imgs_.length; i <= 0; i--)
+        for(int i = imgs_.length-1; i >= 0; i--)
         {
             setImage(imgs_[i]);
         }
