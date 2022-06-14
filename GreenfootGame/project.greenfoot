@@ -1,6 +1,6 @@
 #Greenfoot project file
 class.Button.image=blue-draught.png
-class.Collectable.image=bananas.png
+class.Collectable.image=sprite_collectable0.png
 class.DoorPlaceholder.image=DoorPlacehold.png
 class.DoorwayP1.image=tent.png
 class.DoorwayP2.image=house-04.png
@@ -105,9 +105,9 @@ dependency9.from=MyWorld
 dependency9.to=Player2
 dependency9.type=UsesDependency
 editor.fx.0.height=739
-editor.fx.0.width=885
-editor.fx.0.x=402
-editor.fx.0.y=9
+editor.fx.0.width=816
+editor.fx.0.x=275
+editor.fx.0.y=-4
 height=744
 package.numDependencies=30
 package.numTargets=16
