@@ -28,7 +28,7 @@ public class Player2 extends Actor
         CollisionCheck();
         hitCollectable();
         movement();
-        doorwayLevel();
+        touchingActor();
     }   
     public void movement()
     {
@@ -97,7 +97,7 @@ public class Player2 extends Actor
             getWorld().removeObject(getOneIntersectingObject(Collectable.class));
        } 
     }
-    public void doorwayLevel()
+    public void touchingActor()
     {
         touchingDoorP2 = false;
         if(isTouching(DoorwayP2.class))
@@ -108,6 +108,10 @@ public class Player2 extends Actor
         if(isTouching(Portal1.class))
         {
             setLocation(200, 100);
+        }
+        if(isTouching(LeverPlacehold.class))
+        {
+            
         }
     }
     public void moveOnTopOfObject(Actor object)

@@ -17,21 +17,19 @@ public class Player1 extends Actor
     int deltaY = 0;
     boolean InAir;
     final int gravityVal = 1;
+    
+
     /**
      * Act - do whatever the Player1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        
-        
-        
-        
         CollisionCheck();
         Gravity();
         hitCollectable();
         movement();
-        doorwayLevel();
+        touchingActor();
     }
     public void movement()
     {
@@ -43,12 +41,11 @@ public class Player1 extends Actor
         if(Greenfoot.isKeyDown("right"))
         {
             deltaX = deltaX +6;
-        }   
+        } 
         if (InAir == false && Greenfoot.isKeyDown("up"))
         {
             deltaY = -15;
         }
-        
         
         setLocation(getX() + deltaX, getY() + deltaY);
 
@@ -77,7 +74,6 @@ public class Player1 extends Actor
             deltaY = deltaY + gravityVal;  // Apply gravity.
             InAir = true;
         }
-        
     }
     public void CollisionCheck()
     {
@@ -106,7 +102,7 @@ public class Player1 extends Actor
             getWorld().removeObject(getOneIntersectingObject(Collectable.class));
        } 
     }
-    public void doorwayLevel()
+    public void touchingActor()
     {
         touchingDoorP1 = false;
         if(isTouching(DoorwayP1.class))
@@ -116,6 +112,10 @@ public class Player1 extends Actor
         if(isTouching(Portal1.class))
         {
             setLocation(200, 100);
+        }
+        if(isTouching(LeverPlacehold.class))
+        {
+            
         }
     }
     public void moveOnTopOfObject(Actor object)
@@ -143,7 +143,6 @@ public class Player1 extends Actor
         
         // Adjust character position so that its bottom edge is just touching top edge of object.
         setLocation(object.getX() - objectWidth / 2 - width / 2 + 1,getY()); 
-       
     }
     public void moveToRightEdge(Actor object)
     {
@@ -152,7 +151,5 @@ public class Player1 extends Actor
         
         // Adjust character position so that its bottom edge is just touching top edge of object.
         setLocation(object.getX() + objectWidth / 2 + width / 2 - 1,getY());  
-       
     }
-    
 }
