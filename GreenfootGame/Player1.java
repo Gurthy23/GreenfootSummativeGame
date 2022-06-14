@@ -9,8 +9,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Player1 extends Actor
 {
     static boolean touchingDoorP1 = false;
+    public Player1(int width, int height)
+    {
+        getImage().scale(width, height);
+    }
     int deltaX = 0;
     int deltaY = 0;
+    boolean InAir;
+    final int gravityVal = 1;
     /**
      * Act - do whatever the Player1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -21,15 +27,8 @@ public class Player1 extends Actor
         
         
         setLocation(getX() + deltaX, getY() + deltaY);
-        
-        if(isTouching(Platform.class))
-        {
-            deltaY = 0;
-        }
-        else
-        {
-            deltaY = deltaY + 1;
-        }
+        CollisionCheck();
+        Gravity();
         hitCollectable();
         movement();
         doorwayLevel();
@@ -37,7 +36,6 @@ public class Player1 extends Actor
     public void movement()
     {
         deltaX = 0;
-        
         if(Greenfoot.isKeyDown("left"))
         {
             deltaX = deltaX -4;
@@ -46,18 +44,60 @@ public class Player1 extends Actor
         {
             deltaX = deltaX +4;
         }   
-        if (isTouching(Platform.class) && Greenfoot.isKeyDown("up"))
+        if (InAir == false && Greenfoot.isKeyDown("up"))
         {
-
-            deltaY = -16;
-            
-        } 
+            deltaY = -10;
+        }
+        
+        
+        setLocation(getX() + deltaX, getY() + deltaY);
 
         if(Greenfoot.isKeyDown("p"))
 
         {
             Greenfoot.setWorld(new Level2());
         }
+    }
+    public void Gravity()
+    {
+        int height = getImage().getHeight();
+        
+        Actor platformBottom = getOneObjectAtOffset(0, height / 2, Platform.class);
+        
+        if (platformBottom != null)   // if indeed there is platform touching the bottom of the character.
+        {
+            deltaY = 0;     // Don't apply gravity.
+            InAir = false;
+            
+            moveOnTopOfObject(platformBottom);    // Adjust position to just touching platform.
+         
+        }
+        else    // No platform below.
+        {
+            deltaY = deltaY + gravityVal;  // Apply gravity.
+            InAir = true;
+        }
+        
+    }
+    public void CollisionCheck()
+    {
+           int width = getImage().getWidth();
+           int height = getImage().getHeight();
+           Actor platformRight = getOneObjectAtOffset(width / 2, 0, Platform.class);
+           Actor platformLeft = getOneObjectAtOffset(-width / 2, 0, Platform.class);
+           Actor platformTop = getOneObjectAtOffset(0, -height / 2, Platform.class);
+           if (platformRight != null)
+            {
+                moveToLeftEdge(platformRight);
+            }
+           if (platformLeft != null)
+            {
+                moveToRightEdge(platformLeft);
+            }
+            if (platformTop != null)
+            {
+                moveToBottom(platformTop);
+            }
     }
     public void hitCollectable()
     {
@@ -77,5 +117,41 @@ public class Player1 extends Actor
         {
             setLocation(200, 100);
         }
+    }
+    public void moveOnTopOfObject(Actor object)
+    {
+        int height = getImage().getHeight();
+        int objectHeight = object.getImage().getHeight();
+        
+        // Adjust character position so that its bottom edge is just touching top edge of object.
+        setLocation(getX(), object.getY() - objectHeight / 2 - height / 2 + 1); 
+       
+    }
+    public void moveToBottom(Actor object)
+    {
+        int height = getImage().getHeight();
+        int objectHeight = object.getImage().getHeight();
+        
+        // Adjust character position so that its bottom edge is just touching top edge of object.
+        setLocation(getX(), object.getY() + objectHeight / 2 + height / 2 - 1);  
+       
+    }
+    public void moveToLeftEdge(Actor object)
+    {
+        int width = getImage().getWidth();
+        int objectWidth = object.getImage().getWidth();
+        
+        // Adjust character position so that its bottom edge is just touching top edge of object.
+        setLocation(object.getX() - objectWidth / 2 - width / 2 + 1,getY()); 
+       
+    }
+    public void moveToRightEdge(Actor object)
+    {
+        int width = getImage().getWidth();
+        int objectWidth = object.getImage().getWidth();
+        
+        // Adjust character position so that its bottom edge is just touching top edge of object.
+        setLocation(object.getX() + objectWidth / 2 + width / 2 - 1,getY());  
+       
     }
 }

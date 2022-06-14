@@ -20,10 +20,10 @@ public class MyWorld extends World
         super(900 , 600, 1); 
         
         
-        Player1 player1 = new Player1();
+        Player1 player1 = new Player1(100,50);
         addObject(player1, 300, 240);
         
-        Player2 player2 = new Player2();
+        Player2 player2 = new Player2(100,50);
         addObject(player2, 400, 240);
         
         Collectable collectable1 = new Collectable();
@@ -41,13 +41,10 @@ public class MyWorld extends World
         DoorwayP2 doorwayp2 = new DoorwayP2();
         addObject(doorwayp2, 700, 240);
         
-        int platformX = 0;
-        for(int i = 0; i < 16; i++)
-        {
-            Platform platform = new Platform();
-            addObject(platform, platformX, 300);
-            platformX = platformX + platform.getImage().getWidth();
-        }
+        Platform platform = new Platform(900, 30);
+        addObject(platform,183,579);
+        platform.setLocation(457,290);
+        
         
         addObject(portal1, 600, 240);
         
