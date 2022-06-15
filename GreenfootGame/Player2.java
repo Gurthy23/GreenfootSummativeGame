@@ -102,6 +102,10 @@ public class Player2 extends Actor
     }
     public void touchingActor()
     {
+        int portal1X = Portal1.portal1X;
+        int portal1Y = Portal1.portal1Y;
+        int portal2X = Portal2.portal2X;
+        int portal2Y = Portal2.portal2Y;
         touchingDoorP2 = false;
         if(isTouching(DoorwayP2.class))
         {
@@ -110,7 +114,7 @@ public class Player2 extends Actor
         }
         if(isTouching(Portal1.class))
         {
-            setLocation(200, 100);
+            setLocation(portal2X, portal2Y);
         }
         if(isTouching(LeverPlacehold.class))
         {
