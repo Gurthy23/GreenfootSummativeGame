@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class LeverPlacehold extends Actor
 {
+    boolean leverOn = false;
     public LeverPlacehold(int width, int height)
     {
         getImage().scale(width, height);
@@ -19,6 +20,21 @@ public class LeverPlacehold extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+        collideWithPlayer1();
+        collideWithPlayer2();
+    }
+    public void collideWithPlayer1()
+    {
+        if(getOneIntersectingObject(Player1.class) != null)
+        {
+            leverOn = true;
+        } 
+    }
+    public void collideWithPlayer2()
+    {
+        if(getOneIntersectingObject(Player2.class) != null)
+        {
+            leverOn = true;                         
+        } 
     }    
-}
+}       

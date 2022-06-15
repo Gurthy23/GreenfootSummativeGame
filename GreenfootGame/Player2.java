@@ -65,7 +65,10 @@ public class Player2 extends Actor
         }
         else    // No platform below.
         {
-            deltaY = deltaY + gravityVal;  // Apply gravity.
+            if(deltaY < 20)
+            {
+                deltaY = deltaY + gravityVal;  // Apply gravity.
+            }
             InAir = true;
         }
         
