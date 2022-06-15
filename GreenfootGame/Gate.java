@@ -19,5 +19,6 @@ public class Gate extends Actor
      */
     public void act()
     {
+        
     }
 }

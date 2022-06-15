@@ -28,6 +28,7 @@ public class Level2 extends World
 
         prepare();
     }
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
@@ -67,7 +68,7 @@ public class Level2 extends World
         addObject(platform9,737,358);
         platform9.setLocation(669,505);
 
-        Platform platform10 = new Platform(250, 30);
+        Platform platform10 = new Platform(500, 30);
         addObject(platform10,753,471);
         platform10.setLocation(756,590);
 
@@ -75,9 +76,9 @@ public class Level2 extends World
         addObject(platform11,137,205);
         platform11.setLocation(174,265);
 
-        Platform platform12 = new Platform(10, 150);
-        addObject(platform12,424,258);
-        platform12.setLocation(353, 325);
+        Gate gate = new Gate(15, 130);
+        addObject(gate, 353, 325);
+        gate.setLocation(353, 325);
 
         LeverPlacehold leverPlacehold = new LeverPlacehold(50, 50);
         addObject(leverPlacehold,838,518);
@@ -98,9 +99,13 @@ public class Level2 extends World
         InvisPlatHold invisPlatHold = new InvisPlatHold(75, 20);
         addObject(invisPlatHold,744,258);
         invisPlatHold.setLocation(668,291);
-        
+
         Platform platform13 = new Platform(75, 20);
         addObject(platform13,487,285);
         platform13.setLocation(497,302);
+
+        platform11.setLocation(176,265);
+
+        
     }
 }

@@ -16,13 +16,8 @@ public class Portal1 extends Actor
      */
     public void act() 
     {
-         
-         
-         
-         
-            Actor portal1 = (Actor)getWorld().getObjects(Portal1.class).get(0);
-            portal1X = portal1.getX();
-            portal1Y = portal1.getY();
-            
+        Actor portal1 = (Actor)getWorld().getObjects(Portal1.class).get(0);
+        portal1X = portal1.getX();
+        portal1Y = portal1.getY();  
     }
 }
