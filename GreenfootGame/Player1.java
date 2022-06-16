@@ -71,7 +71,11 @@ public class Player1 extends Actor
         }
         else    // No platform below.
         {
-            deltaY = deltaY + gravityVal;  // Apply gravity.
+            if(deltaY < 20)
+            {
+                deltaY = deltaY + gravityVal;  // Apply gravity.
+            }
+                
             InAir = true;
         }
     }
@@ -105,13 +109,17 @@ public class Player1 extends Actor
     public void touchingActor()
     {
         touchingDoorP1 = false;
+        int portal1X = Portal1.portal1X;
+        int portal1Y = Portal1.portal1Y;
+        int portal2X = Portal2.portal2X;
+        int portal2Y = Portal2.portal2Y;
         if(isTouching(DoorwayP1.class))
         {
             touchingDoorP1 = true;
         }
         if(isTouching(Portal1.class))
         {
-            setLocation(200, 100);
+            setLocation(portal2X, portal2Y);
         }
         if(isTouching(LeverPlacehold.class))
         {
