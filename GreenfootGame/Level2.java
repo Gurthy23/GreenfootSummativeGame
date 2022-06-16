@@ -8,7 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level2 extends World
 {
-
+    boolean leverOn = false;
+    Platform platformGate = new Platform(15, 130);
     /**
      * Constructor for objects of class Level2.
      * 
@@ -35,7 +36,7 @@ public class Level2 extends World
      */
     private void prepare()
     {
-
+        
         Platform platform = new Platform(400, 30);
         addObject(platform,183,579);
         platform.setLocation(199,585);
@@ -76,9 +77,9 @@ public class Level2 extends World
         addObject(platform11,137,205);
         platform11.setLocation(174,265);
 
-        Gate gate = new Gate(15, 130);
-        addObject(gate, 353, 325);
-        gate.setLocation(353, 325);
+        
+        addObject(platformGate, 353, 325);
+        platformGate.setLocation(353, 325);
 
         LeverPlacehold leverPlacehold = new LeverPlacehold(50, 50);
         addObject(leverPlacehold,838,518);
@@ -106,6 +107,15 @@ public class Level2 extends World
 
         platform11.setLocation(176,265);
 
-        
+       
+    }
+    public void act()
+    {
+        leverOn = LeverPlacehold.leverOn;
+         if(leverOn)
+        {
+            removeObject(platformGate);
+            
+        }
     }
 }

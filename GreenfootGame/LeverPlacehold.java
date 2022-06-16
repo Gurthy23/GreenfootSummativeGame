@@ -34,7 +34,8 @@ public class LeverPlacehold extends Actor
     {
         if(getOneIntersectingObject(Player2.class) != null)
         {
-            leverOn = true;                         
+            leverOn = true;   
+            
         } 
     }    
 }       
