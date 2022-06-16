@@ -26,11 +26,14 @@ public class MyWorld extends World
         Player2 player2 = new Player2(100,50);
         addObject(player2, 400, 240);
         
-        Collectable collectable = new Collectable();
-        addObject(collectable, 500, 240);
+        Collectable collectable1 = new Collectable();
+        addObject(collectable1, 500, 240);
+        
+        Collectable collectable2 = new Collectable();
+        addObject(collectable2, 400, 75);
         
         Lethal lethal = new Lethal();
-        addObject(lethal, 200, 240);
+        addObject(lethal, 100, 240);
         
         DoorwayP1 doorwayp1 = new DoorwayP1();
         addObject(doorwayp1, 600, 240);
