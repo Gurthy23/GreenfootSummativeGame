@@ -21,7 +21,7 @@ public class Button extends Actor
         }
             
     } 
-    protected void addedToWorld​(World world)
+    protected void addedToWorld(World world)
     {
         this.world = (MyWorld)world;
     }
