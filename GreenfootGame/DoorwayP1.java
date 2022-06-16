@@ -15,5 +15,5 @@ public class DoorwayP1 extends Actor
     public void act() 
     {
         
-    }    
+    }  
 }

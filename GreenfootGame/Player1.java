@@ -17,38 +17,35 @@ public class Player1 extends Actor
     int deltaY = 0;
     boolean InAir;
     final int gravityVal = 1;
+    
+
     /**
      * Act - do whatever the Player1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        
-        
-        
-        setLocation(getX() + deltaX, getY() + deltaY);
         CollisionCheck();
         Gravity();
         hitCollectable();
         movement();
-        doorwayLevel();
+        touchingActor();
     }
     public void movement()
     {
         deltaX = 0;
         if(Greenfoot.isKeyDown("left"))
         {
-            deltaX = deltaX -4;
+            deltaX = deltaX -6;
         }    
         if(Greenfoot.isKeyDown("right"))
         {
-            deltaX = deltaX +4;
-        }   
+            deltaX = deltaX +6;
+        } 
         if (InAir == false && Greenfoot.isKeyDown("up"))
         {
-            deltaY = -10;
+            deltaY = -15;
         }
-        
         
         setLocation(getX() + deltaX, getY() + deltaY);
 
@@ -74,10 +71,13 @@ public class Player1 extends Actor
         }
         else    // No platform below.
         {
-            deltaY = deltaY + gravityVal;  // Apply gravity.
+            if(deltaY < 20)
+            {
+                deltaY = deltaY + gravityVal;  // Apply gravity.
+            }
+                
             InAir = true;
         }
-        
     }
     public void CollisionCheck()
     {
@@ -94,9 +94,9 @@ public class Player1 extends Actor
             {
                 moveToRightEdge(platformLeft);
             }
-            if (platformTop != null)
+           if (platformTop != null)
             {
-                moveToBottom(platformTop);
+               moveToBottom(platformTop);
             }
     }
     public void hitCollectable()
@@ -106,16 +106,24 @@ public class Player1 extends Actor
             getWorld().removeObject(getOneIntersectingObject(Collectable.class));
        } 
     }
-    public void doorwayLevel()
+    public void touchingActor()
     {
         touchingDoorP1 = false;
+        int portal1X = Portal1.portal1X;
+        int portal1Y = Portal1.portal1Y;
+        int portal2X = Portal2.portal2X;
+        int portal2Y = Portal2.portal2Y;
         if(isTouching(DoorwayP1.class))
         {
             touchingDoorP1 = true;
         }
         if(isTouching(Portal1.class))
         {
-            setLocation(200, 100);
+            setLocation(portal2X, portal2Y);
+        }
+        if(isTouching(LeverPlacehold.class))
+        {
+            
         }
     }
     public void moveOnTopOfObject(Actor object)
@@ -143,7 +151,6 @@ public class Player1 extends Actor
         
         // Adjust character position so that its bottom edge is just touching top edge of object.
         setLocation(object.getX() - objectWidth / 2 - width / 2 + 1,getY()); 
-       
     }
     public void moveToRightEdge(Actor object)
     {
@@ -152,6 +159,5 @@ public class Player1 extends Actor
         
         // Adjust character position so that its bottom edge is just touching top edge of object.
         setLocation(object.getX() + objectWidth / 2 + width / 2 - 1,getY());  
-       
     }
 }

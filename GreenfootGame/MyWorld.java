@@ -33,7 +33,9 @@ public class MyWorld extends World
         addObject(collectable2, 400, 75);
         
         Lethal lethal = new Lethal();
-        addObject(lethal, 100, 240);
+
+        //addObject(lethal, 200, 240);
+
         
         DoorwayP1 doorwayp1 = new DoorwayP1();
         addObject(doorwayp1, 600, 240);
@@ -53,6 +55,9 @@ public class MyWorld extends World
         
         Button button = new Button();
         addObject(button, 850, 240);
+        
+        Spikes spikes = new Spikes();
+        addObject(spikes,100,240);
     }
     public void act()
     {

@@ -23,27 +23,27 @@ public class Player2 extends Actor
      */
     public void act() 
     {
-        setLocation(getX() + deltaX, getY() + deltaY);
+        
         Gravity();
         CollisionCheck();
         hitCollectable();
         movement();
-        doorwayLevel();
+        touchingActor();
     }   
     public void movement()
     {
         deltaX = 0;
         if(Greenfoot.isKeyDown("a"))
         {
-            deltaX = deltaX -4;
+            deltaX = deltaX -6;
         }    
         if(Greenfoot.isKeyDown("d"))
         {
-            deltaX = deltaX +4;
+            deltaX = deltaX +6;
         }   
         if (InAir == false && Greenfoot.isKeyDown("w"))
         {
-            deltaY = -10;
+            deltaY = -15;
         }
         
         
@@ -65,7 +65,10 @@ public class Player2 extends Actor
         }
         else    // No platform below.
         {
-            deltaY = deltaY + gravityVal;  // Apply gravity.
+            if(deltaY < 20)
+            {
+                deltaY = deltaY + gravityVal;  // Apply gravity.
+            }
             InAir = true;
         }
         
@@ -97,8 +100,12 @@ public class Player2 extends Actor
             getWorld().removeObject(getOneIntersectingObject(Collectable.class));
        } 
     }
-    public void doorwayLevel()
+    public void touchingActor()
     {
+        int portal1X = Portal1.portal1X;
+        int portal1Y = Portal1.portal1Y;
+        int portal2X = Portal2.portal2X;
+        int portal2Y = Portal2.portal2Y;
         touchingDoorP2 = false;
         if(isTouching(DoorwayP2.class))
         {
@@ -107,7 +114,11 @@ public class Player2 extends Actor
         }
         if(isTouching(Portal1.class))
         {
-            setLocation(200, 100);
+            setLocation(portal2X, portal2Y);
+        }
+        if(isTouching(LeverPlacehold.class))
+        {
+            
         }
     }
     public void moveOnTopOfObject(Actor object)
