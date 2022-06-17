@@ -10,6 +10,7 @@ public class Level2 extends World
 {
     boolean leverOn = false;
     Platform platformGate = new Platform(15, 130);
+    
     /**
      * Constructor for objects of class Level2.
      * 
@@ -76,7 +77,6 @@ public class Level2 extends World
         Platform platform11 = new Platform(350, 30);
         addObject(platform11,137,205);
         platform11.setLocation(174,265);
-
         
         addObject(platformGate, 353, 325);
         platformGate.setLocation(353, 325);
@@ -112,10 +112,14 @@ public class Level2 extends World
     public void act()
     {
         leverOn = LeverPlacehold.leverOn;
-         if(leverOn)
+        Platform platform12 = new Platform(75, 20);
+        if (leverOn)
         {
             removeObject(platformGate);
+            addObject(platform12,744,258);
+            platform12.setLocation(668,291);
             
         }
+        
     }
 }

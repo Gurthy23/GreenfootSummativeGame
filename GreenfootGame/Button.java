@@ -9,9 +9,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Button extends Actor
 {
     MyWorld world;
+
     boolean playSound = false;
     boolean soundHasPlayed = false;
-    int buttonSoundOnce = 0;
+   
+
+    GreenfootImage image1 = new GreenfootImage("Button0.png");
+    GreenfootImage image2 = new GreenfootImage("Button1.png");
+
     /**
      * Act - do whatever the button wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -22,9 +27,12 @@ public class Button extends Actor
         {
             playSound = true;
             world.portal1.setLocation(600, 400);
+            setImage(image2);
         }
+
         else
         {
+            setImage(image1);
             soundHasPlayed = false;
             playSound = false;
         }
@@ -32,6 +40,7 @@ public class Button extends Actor
         {
             buttonSoundEffect();
         }
+
     } 
     protected void addedToWorld(World world)
     {

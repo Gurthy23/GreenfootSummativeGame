@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class InvisPlatHold extends Actor
 {
+    
     public InvisPlatHold(int width, int height)
     {
         getImage().scale(width, height);
