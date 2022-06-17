@@ -10,7 +10,7 @@ public class Spikes extends Actor
 {
     private String[] imgs_;
     boolean isSpikeUp = false;
-  
+    int frameCounter = 0;
     /**
      * Act - do whatever the Spikes wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -44,15 +44,36 @@ public class Spikes extends Actor
     
     public boolean spikeUp()
     {
-        
-        for(int i = 0; i < imgs_.length; i++)
-        {               
-            setImage(imgs_[i]);
+        Greenfoot.playSound("SpikeSound.mp3");
+        frameCounter++;
+
+
+        if (frameCounter == 0)
+        {
+            setImage(imgs_[0]);
+        }
+        if (frameCounter == 5)
+        {
+            setImage(imgs_[1]);
+        }
+        if (frameCounter == 10)
+        {
+            setImage(imgs_[2]);
+        }
+        if (frameCounter == 15)
+        {
+            setImage(imgs_[3]);
+        }
+        if (frameCounter == 20)
+        {
+            frameCounter = 0;
         }
         return true;
     }
     public boolean spikeDown()
     {
+        
+        Greenfoot.playSound("SpikeSound2.mp3");
         for(int i = imgs_.length-1; i >= 0; i--)
         {
             setImage(imgs_[i]);
@@ -63,6 +84,7 @@ public class Spikes extends Actor
     {
         if(getOneIntersectingObject(Player1.class) != null)
         {
+            Greenfoot.playSound("DeathSound.mp3");
             getWorld().removeObject(getOneIntersectingObject(Player1.class));
         } 
     }
@@ -70,6 +92,7 @@ public class Spikes extends Actor
     {
         if(getOneIntersectingObject(Player2.class) != null)
         {
+            Greenfoot.playSound("DeathSound.mp3");
             getWorld().removeObject(getOneIntersectingObject(Player2.class));
         } 
     } 

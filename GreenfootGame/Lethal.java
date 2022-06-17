@@ -22,15 +22,16 @@ public class Lethal extends Actor
     
         if(getOneIntersectingObject(Player1.class) != null)
        {
-            
+            Greenfoot.playSound("DeathSound.mp3");
             getWorld().removeObject(getOneIntersectingObject(Player1.class));
        } 
     
     }
     public void collideWithPlayer2()
     {
-         if(getOneIntersectingObject(Player2.class) != null)
+        if(getOneIntersectingObject(Player2.class) != null)
         {
+            Greenfoot.playSound("DeathSound.mp3");
             getWorld().removeObject(getOneIntersectingObject(Player2.class));
         } 
     }
