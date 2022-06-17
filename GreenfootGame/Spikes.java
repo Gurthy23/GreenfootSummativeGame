@@ -44,7 +44,7 @@ public class Spikes extends Actor
     
     public boolean spikeUp()
     {
-        
+        Greenfoot.playSound("SpikeSound.mp3");
         for(int i = 0; i < imgs_.length; i++)
         {               
             setImage(imgs_[i]);
@@ -53,6 +53,7 @@ public class Spikes extends Actor
     }
     public boolean spikeDown()
     {
+        Greenfoot.playSound("SpikeSound2.mp3");
         for(int i = imgs_.length-1; i >= 0; i--)
         {
             setImage(imgs_[i]);
@@ -63,6 +64,7 @@ public class Spikes extends Actor
     {
         if(getOneIntersectingObject(Player1.class) != null)
         {
+            Greenfoot.playSound("DeathSound.mp3");
             getWorld().removeObject(getOneIntersectingObject(Player1.class));
         } 
     }
@@ -70,6 +72,7 @@ public class Spikes extends Actor
     {
         if(getOneIntersectingObject(Player2.class) != null)
         {
+            Greenfoot.playSound("DeathSound.mp3");
             getWorld().removeObject(getOneIntersectingObject(Player2.class));
         } 
     } 

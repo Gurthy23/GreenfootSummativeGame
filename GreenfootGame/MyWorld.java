@@ -66,6 +66,7 @@ public class MyWorld extends World
         if(isP1TouchingDoor  == true && isP2TouchingDoor == true)
         {
             Greenfoot.setWorld(new Level2());
+            Greenfoot.playSound("Excellent.mp3");
         }
     }
     

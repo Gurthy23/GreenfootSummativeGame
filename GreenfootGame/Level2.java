@@ -11,8 +11,10 @@ public class Level2 extends World
     boolean leverOn = false;
     boolean lever2On = false;
     Platform platformGate = new Platform(15, 130);
+
     InvisPlatHold invisPlatHold = new InvisPlatHold(75, 20);
     Platform platform12 = new Platform(75, 20);
+
     /**
      * Constructor for objects of class Level2.
      * 
@@ -79,7 +81,6 @@ public class Level2 extends World
         Platform platform11 = new Platform(350, 30);
         addObject(platform11,137,205);
         platform11.setLocation(174,265);
-
         
         addObject(platformGate, 353, 325);
         platformGate.setLocation(353, 325);
@@ -116,9 +117,11 @@ public class Level2 extends World
     {
         leverOn = LeverPlacehold.leverOn;
         lever2On = Lever2.lever2On;
-         if(leverOn)
+        if(leverOn)
         {
             removeObject(platformGate);
+            addObject(platform12,744,258);
+            platform12.setLocation(668,291);
             
         }
         if(lever2On)

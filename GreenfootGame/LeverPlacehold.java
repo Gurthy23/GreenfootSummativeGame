@@ -11,6 +11,8 @@ public class LeverPlacehold extends Actor
     public static boolean leverOn = false;
     GreenfootImage image1 = new GreenfootImage("Lever0.png");
     GreenfootImage image2 = new GreenfootImage("Lever1.png");
+    boolean playSound = false;
+    boolean soundHasPlayed = false;
     public LeverPlacehold(int width, int height)
     {
         getImage().scale(width, height);
@@ -22,24 +24,33 @@ public class LeverPlacehold extends Actor
      */
     public void act() 
     {
-        collideWithPlayer1();
-        collideWithPlayer2();
+        collideWithPlayer();
         
     }
-    public void collideWithPlayer1()
+    public void collideWithPlayer()
     {
-        if(getOneIntersectingObject(Player1.class) != null)
+        if(getOneIntersectingObject(Player1.class) != null || getOneIntersectingObject(Player2.class) != null)
         {
+            
             leverOn = true;
             setImage(image2);
+            
+            buttonSoundEffect();
         } 
-    }
-    public void collideWithPlayer2()
-    {
-        if(getOneIntersectingObject(Player2.class) != null)
+        else
         {
-            leverOn = true;   
-            setImage(image2);
-        } 
-    }    
+            
+            soundHasPlayed = false;
+            playSound = false;
+        }
+    }
+    
+    public void buttonSoundEffect()
+    {
+        if(!soundHasPlayed)
+        {
+            Greenfoot.playSound("LeverSound.mp3");
+            soundHasPlayed = true;
+        }
+    }
 }       

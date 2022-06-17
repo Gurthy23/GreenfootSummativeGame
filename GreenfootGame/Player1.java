@@ -44,6 +44,7 @@ public class Player1 extends Actor
         } 
         if (InAir == false && Greenfoot.isKeyDown("up"))
         {
+            Greenfoot.playSound("JumpSound.mp3");
             deltaY = -15;
         }
         
@@ -103,7 +104,8 @@ public class Player1 extends Actor
     {
        if(getOneIntersectingObject(Collectable.class) != null)
        {
-            getWorld().removeObject(getOneIntersectingObject(Collectable.class));
+           Greenfoot.playSound("CoinSound.mp3");
+           getWorld().removeObject(getOneIntersectingObject(Collectable.class));
        } 
     }
     public void touchingActor()
@@ -119,6 +121,7 @@ public class Player1 extends Actor
         }
         if(isTouching(Portal1.class))
         {
+            Greenfoot.playSound("PortalSound.mp3");
             setLocation(portal2X, portal2Y);
         }
         if(isTouching(LeverPlacehold.class))
