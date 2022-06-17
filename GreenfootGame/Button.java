@@ -9,6 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Button extends Actor
 {
     MyWorld world;
+    GreenfootImage image1 = new GreenfootImage("Button0.png");
+    GreenfootImage image2 = new GreenfootImage("Button1.png");
     /**
      * Act - do whatever the button wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -18,8 +20,12 @@ public class Button extends Actor
         if (isTouching(Player1.class))
         {
             world.portal1.setLocation(600, 400);
+            setImage(image2);
         }
-            
+        else
+        {
+            setImage(image1);
+        }
     } 
     protected void addedToWorld(World world)
     {
