@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player2 extends Actor
 {
+    
     static boolean touchingDoorP2 = false;
     public Player2(int width, int height)
     {
