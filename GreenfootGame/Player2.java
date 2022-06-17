@@ -10,6 +10,7 @@ public class Player2 extends Actor
 {
     
     static boolean touchingDoorP2 = false;
+    
     public Player2(int width, int height)
     {
         getImage().scale(width, height);
@@ -44,6 +45,7 @@ public class Player2 extends Actor
         }   
         if (InAir == false && Greenfoot.isKeyDown("w"))
         {
+            Greenfoot.playSound("JumpSound.mp3");
             deltaY = -15;
         }
         
@@ -98,6 +100,7 @@ public class Player2 extends Actor
     {
        if(getOneIntersectingObject(Collectable.class) != null)
        {
+            Greenfoot.playSound("CoinSound.mp3");
             getWorld().removeObject(getOneIntersectingObject(Collectable.class));
        } 
     }
@@ -115,6 +118,7 @@ public class Player2 extends Actor
         }
         if(isTouching(Portal1.class))
         {
+            Greenfoot.playSound("PortalSound.mp3");
             setLocation(portal2X, portal2Y);
         }
         if(isTouching(LeverPlacehold.class))
