@@ -27,6 +27,7 @@ public class LeverPlacehold extends Actor
     {
         if(getOneIntersectingObject(Player1.class) != null)
         {
+            Greenfoot.playSound("LeverSound.mp3");
             leverOn = true;
         } 
     }
@@ -34,8 +35,8 @@ public class LeverPlacehold extends Actor
     {
         if(getOneIntersectingObject(Player2.class) != null)
         {
-            leverOn = true;   
-            
+            Greenfoot.playSound("LeverSound.mp3");
+            leverOn = true;              
         } 
     }    
 }       
