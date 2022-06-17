@@ -9,7 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Level2 extends World
 {
     boolean leverOn = false;
+    boolean lever2On = false;
     Platform platformGate = new Platform(15, 130);
+    InvisPlatHold invisPlatHold = new InvisPlatHold(75, 20);
+    Platform platform12 = new Platform(75, 20);
     /**
      * Constructor for objects of class Level2.
      * 
@@ -85,9 +88,9 @@ public class Level2 extends World
         addObject(leverPlacehold,838,518);
         leverPlacehold.setLocation(836,558);
 
-        LeverPlacehold leverPlacehold2 = new LeverPlacehold(50, 50);
-        addObject(leverPlacehold2,272,323);
-        leverPlacehold2.setLocation(310,371);
+        Lever2 lever2 = new Lever2(50, 50);
+        addObject(lever2,272,323);
+        lever2.setLocation(310,371);
 
         DoorPlaceholder doorPlaceholder = new DoorPlaceholder(40, 80);
         addObject(doorPlaceholder,70,338);
@@ -97,7 +100,7 @@ public class Level2 extends World
         addObject(doorPlaceholder2,120,334);
         doorPlaceholder2.setLocation(87,349);
 
-        InvisPlatHold invisPlatHold = new InvisPlatHold(75, 20);
+        
         addObject(invisPlatHold,744,258);
         invisPlatHold.setLocation(668,291);
 
@@ -112,10 +115,17 @@ public class Level2 extends World
     public void act()
     {
         leverOn = LeverPlacehold.leverOn;
+        lever2On = Lever2.lever2On;
          if(leverOn)
         {
             removeObject(platformGate);
             
+        }
+        if(lever2On)
+        {
+            removeObject(invisPlatHold);
+            addObject(platform12,744,258);
+            platform12.setLocation(668,291);
         }
     }
 }
