@@ -61,13 +61,7 @@ public class MyWorld extends World
     }
     public void act()
     {
-        boolean isP1TouchingDoor = Player1.touchingDoorP1;
-        boolean isP2TouchingDoor = Player2.touchingDoorP2;
-        if(isP1TouchingDoor  == true && isP2TouchingDoor == true)
-        {
-            Greenfoot.setWorld(new Level2());
-            Greenfoot.playSound("Excellent.mp3");
-        }
+        
     }
     
 }
