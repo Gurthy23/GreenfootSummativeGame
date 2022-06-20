@@ -1,5 +1,5 @@
 #Greenfoot project file
-class.Button.image=blue-draught.png
+class.Button.image=Button1.png
 class.Collectable.image=sprite_collectable0.png
 class.DoorPlaceholder.image=DoorPlacehold.png
 class.DoorwayP1.image=tent.png

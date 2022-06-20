@@ -10,7 +10,8 @@ public class Spikes extends Actor
 {
     private String[] imgs_;
     boolean isSpikeUp = false;
-  
+    private int spikeTimer = 300;
+    private int timer = spikeTimer;
     /**
      * Act - do whatever the Spikes wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -18,7 +19,7 @@ public class Spikes extends Actor
     public void act() 
     {
         
-        
+        timer--;
         imgs_ = new String[4];
 
         for(int i = 0; i <imgs_.length; i++)
@@ -26,20 +27,25 @@ public class Spikes extends Actor
             imgs_[i] = "Spike"+i+".png";
             
         }
-        if(Greenfoot.isKeyDown("o"))
+         
+        if(isSpikeUp==false &&timer<=0)
         {
             isSpikeUp = spikeUp();
-        }   
-        if(Greenfoot.isKeyDown("i"))
+        }
+        if(isSpikeUp == true && timer>=0)
         {
             isSpikeUp = spikeDown();
-        }  
+        }
+        if(timer<= -spikeTimer)
+        {
+            timer = spikeTimer;
+        }
         if(isSpikeUp)
         {
             collideWithPlayer1();
             collideWithPlayer2();
         }
-        
+        //getWorld().showText("spikeTimer:" +timer,300 ,300 ); //Shows the timer for spike
     } 
     
     public boolean spikeUp()
