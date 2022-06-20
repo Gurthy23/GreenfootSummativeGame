@@ -30,7 +30,7 @@ public class Lever2 extends Actor
     }
     public void collideWithPlayer()
     {
-        if(getOneIntersectingObject(Player1.class) != null)
+        if(getOneIntersectingObject(Player1.class) != null || getOneIntersectingObject(Player2.class) != null)
         {
             lever2On = true;
             setImage(image2);
