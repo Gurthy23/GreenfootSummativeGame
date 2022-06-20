@@ -9,8 +9,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Player2 extends Actor
 {
     
-    static boolean touchingDoorP2 = false;
-    
+    boolean touchingDoorP2 = false;
+    Level2 level;
+    protected void addedToWorld(World world)
+    {
+        level = (Level2) world;
+    }
     public Player2(int width, int height)
     {
         getImage().scale(width, height);
@@ -19,6 +23,7 @@ public class Player2 extends Actor
     int deltaY = 0;
     boolean InAir;
     final int gravityVal = 1;
+    public int score = 0;
     /**
      * Act - do whatever the Player1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -100,8 +105,9 @@ public class Player2 extends Actor
     {
        if(getOneIntersectingObject(Collectable.class) != null)
        {
-            Greenfoot.playSound("CoinSound.mp3");
-            getWorld().removeObject(getOneIntersectingObject(Collectable.class));
+           score += 10;
+           Greenfoot.playSound("CoinSound.mp3");
+           getWorld().removeObject(getOneIntersectingObject(Collectable.class));
        } 
     }
     public void touchingActor()
@@ -113,8 +119,7 @@ public class Player2 extends Actor
         touchingDoorP2 = false;
         if(isTouching(DoorwayP2.class))
         {
-            touchingDoorP2 = true;
-
+            level.isPlayer1TouchingDoor = true;
         }
         if(isTouching(Portal1.class))
         {
