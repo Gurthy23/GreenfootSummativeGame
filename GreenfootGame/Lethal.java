@@ -8,14 +8,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Lethal extends Actor
 {
-    GreenfootImage image1 = new GreenfootImage("Toxic_Waste/Toxic_water0.png");
-    GreenfootImage image2 = new GreenfootImage("Toxic_Waste/Toxic_water1.png");
-    GreenfootImage image3 = new GreenfootImage("Toxic_Waste/Toxic_water2.png");
-    int frameCounter = 0;
+    
+    
+    
     /**
      * Act - do whatever the Leathal wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public Lethal(int width, int height)
+    {
+        getImage().scale(width, height);
+    }
     public void act() 
     {
         collideWithPlayer1();

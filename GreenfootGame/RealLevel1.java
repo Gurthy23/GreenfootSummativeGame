@@ -29,6 +29,10 @@ public class RealLevel1 extends World
     }
     private void prepare()
     {
+        Lethal lethal1 = new Lethal(900,25);
+        addObject(lethal1,20,20);
+        lethal1.setLocation(450,585);
+        
         Platform platform1 = new Platform(200, 30);
         addObject(platform1,183,579);
         platform1.setLocation(450,585);
@@ -44,6 +48,10 @@ public class RealLevel1 extends World
         Lever2 lever1 = new Lever2(30,30);
         addObject(lever1,100,100);
         lever1.setLocation(50,555);
+        
+        
+        
+        
     }    
     
     

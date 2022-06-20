@@ -32,7 +32,7 @@ public class MyWorld extends World
         Collectable collectable2 = new Collectable();
         addObject(collectable2, 400, 75);
         
-        Lethal lethal = new Lethal();
+        
 
         //addObject(lethal, 200, 240);
 
