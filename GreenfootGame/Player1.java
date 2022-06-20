@@ -9,10 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Player1 extends Actor
 {
     boolean touchingDoorP1 = false;
-    Level2 level;
+    GameLevel level;
     protected void addedToWorld(World world)
     {
-        level = (Level2) world;
+        level = (GameLevel) world;
     }
     public Player1(int width, int height)
     {

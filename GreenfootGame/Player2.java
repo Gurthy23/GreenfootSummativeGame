@@ -10,10 +10,10 @@ public class Player2 extends Actor
 {
     
     boolean touchingDoorP2 = false;
-    Level2 level;
+    GameLevel level;
     protected void addedToWorld(World world)
     {
-        level = (Level2) world;
+        level = (GameLevel) world;
     }
     public Player2(int width, int height)
     {

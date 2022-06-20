@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Level2 extends World
+public class Level2 extends GameLevel
 {
     public static int levelCurrent;
     Platform platformGate = new Platform(15, 130);
@@ -14,15 +14,7 @@ public class Level2 extends World
     InvisPlatHold invisPlatHold = new InvisPlatHold(75, 20);
     Platform platform12 = new Platform(75, 20);
     Lever2 lever2 = new Lever2(50, 50);
-    DoorwayP1 doorwayP1 = new DoorwayP1();
-    DoorwayP2 doorwayP2 = new DoorwayP2();
-    Player1 player1 = new Player1(30, 40);
-    Player2 player2 = new Player2(30, 40);
     
-    boolean isPlayer1Dead = false;
-    boolean isPlayer2Dead = false;
-    boolean isPlayer1TouchingDoor = false;
-    boolean isPlayer2TouchingDoor = false;
     /**
      * Constructor for objects of class Level2.
      * 

@@ -8,10 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Lethal extends Actor
 {
-    Level2 level;
+    GameLevel level;
     protected void addedToWorld(World world)
     {
-        level = (Level2) world;
+        level = (GameLevel) world;
     }
     /**
      * Act - do whatever the Leathal wants to do. This method is called whenever
