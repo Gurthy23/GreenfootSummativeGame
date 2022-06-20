@@ -8,12 +8,20 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player1 extends Actor
 {
-    static boolean touchingDoorP1 = false;
+
     GreenfootImage image1 = new GreenfootImage("TedRun320.png");
     GreenfootImage image2 = new GreenfootImage("TedStand.png");
     GreenfootImage image3 = new GreenfootImage("Tedleft0.png");
     GreenfootImage image4 = new GreenfootImage("Tedleft1.png");
     int FrameCount = 0;
+
+    boolean touchingDoorP1 = false;
+    Level2 level;
+    protected void addedToWorld(World world)
+    {
+        level = (Level2) world;
+    }
+
     public Player1(int width, int height)
     {
         getImage().scale(width, height);
@@ -22,7 +30,7 @@ public class Player1 extends Actor
     int deltaY = 0;
     boolean InAir;
     final int gravityVal = 1;
-    
+    public int score = 0;
 
     /**
      * Act - do whatever the Player1 wants to do. This method is called whenever
@@ -195,8 +203,10 @@ public class Player1 extends Actor
     {
        if(getOneIntersectingObject(Collectable.class) != null)
        {
+           score += 10;
            Greenfoot.playSound("CoinSound.mp3");
            getWorld().removeObject(getOneIntersectingObject(Collectable.class));
+           
        } 
     }
     public void touchingActor()
@@ -206,9 +216,10 @@ public class Player1 extends Actor
         int portal1Y = Portal1.portal1Y;
         int portal2X = Portal2.portal2X;
         int portal2Y = Portal2.portal2Y;
+        
         if(isTouching(DoorwayP1.class))
         {
-            touchingDoorP1 = true;
+            level.isPlayer1TouchingDoor = true;
         }
         if(isTouching(Portal1.class))
         {
