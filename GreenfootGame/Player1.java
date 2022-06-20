@@ -115,6 +115,7 @@ public class Player1 extends Actor
         int portal1Y = Portal1.portal1Y;
         int portal2X = Portal2.portal2X;
         int portal2Y = Portal2.portal2Y;
+        
         if(isTouching(DoorwayP1.class))
         {
             touchingDoorP1 = true;

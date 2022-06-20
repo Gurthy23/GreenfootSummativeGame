@@ -10,7 +10,8 @@ public class Spikes extends Actor
 {
     private String[] imgs_;
     boolean isSpikeUp = false;
-  
+    public static boolean player1Dead;
+    public static boolean player2Dead;
     /**
      * Act - do whatever the Spikes wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -65,7 +66,8 @@ public class Spikes extends Actor
         if(getOneIntersectingObject(Player1.class) != null)
         {
             Greenfoot.playSound("DeathSound.mp3");
-            Greenfoot.setWorld(new Level2());
+            getWorld().removeObject(getOneIntersectingObject(Player1.class));
+            player1Dead = true;
         } 
     }
     public void collideWithPlayer2()
@@ -73,7 +75,8 @@ public class Spikes extends Actor
         if(getOneIntersectingObject(Player2.class) != null)
         {
             Greenfoot.playSound("DeathSound.mp3");
-            Greenfoot.setWorld(new Level2());
+            getWorld().removeObject(getOneIntersectingObject(Player2.class));
+            player2Dead = true;
         } 
     } 
 }

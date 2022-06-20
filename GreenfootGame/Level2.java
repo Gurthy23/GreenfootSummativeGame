@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level2 extends World
 {
+    public static int levelCurrent;
     boolean leverOn = false;
     boolean lever2On = false;
     Platform platformGate = new Platform(15, 130);
@@ -25,7 +26,7 @@ public class Level2 extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(900 , 600, 1); 
-
+        levelCurrent = 2;
         Player1 player1 = new Player1(30, 40);
         addObject(player1, 40, 525);
 
@@ -130,6 +131,16 @@ public class Level2 extends World
             removeObject(invisPlatHold);
             addObject(platform12,744,258);
             platform12.setLocation(668,291);
+        }
+        
+        boolean player1DeadSpikes = Spikes.player1Dead;
+        boolean player1DeadLethal = Lethal.player1Dead;
+        if(player1DeadLethal == true || player1DeadSpikes == true)
+        {
+            player1DeadLethal = false;
+            player1DeadSpikes = false;
+            Greenfoot.setWorld(new DeathScreen());
+            
         }
     }
 }

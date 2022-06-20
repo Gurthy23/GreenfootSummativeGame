@@ -37,12 +37,6 @@ public class LeverPlacehold extends Actor
             
             buttonSoundEffect();
         } 
-        else
-        {
-            
-            soundHasPlayed = false;
-            playSound = false;
-        }
     }
     
     public void buttonSoundEffect()
