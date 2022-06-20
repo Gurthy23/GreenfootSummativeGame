@@ -8,9 +8,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level2 extends GameLevel
 {
+
+    boolean leverOn = false;
+    boolean lever2On = false;
+    Gate Gategate = new Gate(15, 130);
+
+
     public static int levelCurrent;
-    Platform platformGate = new Platform(15, 130);
+    
     LeverPlacehold leverPlacehold = new LeverPlacehold(50, 50);
+
     InvisPlatHold invisPlatHold = new InvisPlatHold(75, 20);
     Platform platform12 = new Platform(75, 20);
     Lever2 lever2 = new Lever2(50, 50);
@@ -46,9 +53,7 @@ public class Level2 extends GameLevel
         addObject(platform,183,579);
         platform.setLocation(199,585);
 
-        Platform platform2 = new Platform(100, 400);
-        addObject(platform2,803,414);
-        platform2.setLocation(583,406);
+        
 
         Platform platform3 = new Platform(400, 30);
         addObject(platform3,178,336);
@@ -66,9 +71,9 @@ public class Level2 extends GameLevel
         addObject(platform7,740,379);
         platform7.setLocation(840,425);
 
-        Platform platform8 = new Platform(30, 800);
-        addObject(platform8,730,311);
-        platform8.setLocation(893,401);
+        Pillar pillar2 = new Pillar(30, 800);
+        addObject(pillar2,730,311);
+        pillar2.setLocation(893,401);
 
         Platform platform9 = new Platform(75, 20);
         addObject(platform9,737,358);
@@ -82,8 +87,7 @@ public class Level2 extends GameLevel
         addObject(platform11,137,205);
         platform11.setLocation(174,265);
 
-        addObject(platformGate, 353, 325);
-        platformGate.setLocation(353, 325);
+
 
         addObject(leverPlacehold,838,518);
         leverPlacehold.setLocation(836,558);
@@ -109,10 +113,19 @@ public class Level2 extends GameLevel
         platform11.setLocation(176,265);
 
 
+        
+        addObject(Gategate,353,325);
+
+        Pillar pillar = new Pillar(110, 400);
+        addObject(pillar,583,405);
+        
+
+
         DoorwayP1 doorwayP1 = new DoorwayP1();
         addObject(doorwayP1,40,349);
         DoorwayP2 doorwayP2 = new DoorwayP2();
         addObject(doorwayP2,107,350);
+
     }
 
     public void act()
@@ -122,7 +135,7 @@ public class Level2 extends GameLevel
         
         if(leverPlacehold.leverOn)
         {
-            removeObject(platformGate);
+            removeObject(Gategate);
         
             
         }
