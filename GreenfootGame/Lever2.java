@@ -8,11 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Lever2 extends Actor
 {
-    public static boolean lever2On = false;
+    public boolean lever2On = false;
     GreenfootImage image1 = new GreenfootImage("Lever0.png");
     GreenfootImage image2 = new GreenfootImage("Lever1.png");
     boolean playSound = false;
     boolean soundHasPlayed = false;
+    
     public Lever2(int width, int height)
     {
         getImage().scale(width, height);
@@ -25,8 +26,7 @@ public class Lever2 extends Actor
     public void act() 
     {
         collideWithPlayer();
-        
-        
+
     }
     public void collideWithPlayer()
     {

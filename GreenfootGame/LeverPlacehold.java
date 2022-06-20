@@ -8,11 +8,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class LeverPlacehold extends Actor
 {
-    public static boolean leverOn = false;
+    public boolean leverOn = false;
     GreenfootImage image1 = new GreenfootImage("Lever0.png");
     GreenfootImage image2 = new GreenfootImage("Lever1.png");
     boolean playSound = false;
     boolean soundHasPlayed = false;
+    
+    
     public LeverPlacehold(int width, int height)
     {
         getImage().scale(width, height);

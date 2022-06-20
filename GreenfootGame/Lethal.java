@@ -8,8 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Lethal extends Actor
 {
-    public static boolean player1Dead;
-    public static boolean player2Dead;
+    Level2 level;
+    protected void addedToWorld(World world)
+    {
+        level = (Level2) world;
+    }
     /**
      * Act - do whatever the Leathal wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -26,7 +29,7 @@ public class Lethal extends Actor
        {
             Greenfoot.playSound("DeathSound.mp3");
             getWorld().removeObject(getOneIntersectingObject(Player1.class));
-            player1Dead = true;
+            level.isPlayer1Dead = true;
        } 
     
     }
@@ -36,7 +39,7 @@ public class Lethal extends Actor
         {
             Greenfoot.playSound("DeathSound.mp3");
             getWorld().removeObject(getOneIntersectingObject(Player2.class));
-            player1Dead = true;
+            level.isPlayer2Dead = true;
         } 
     }
     

@@ -20,6 +20,7 @@ public class DeathScreen extends World
     }
     public void act()
     {
+        showText("Press \"r\" to restart your level", 450, 300);
         int levelCurrent = Level2.levelCurrent;
         if(Greenfoot.isKeyDown("r"))
         {

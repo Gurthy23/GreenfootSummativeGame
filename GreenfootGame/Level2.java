@@ -9,13 +9,20 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Level2 extends World
 {
     public static int levelCurrent;
-    boolean leverOn = false;
-    boolean lever2On = false;
     Platform platformGate = new Platform(15, 130);
-
+    LeverPlacehold leverPlacehold = new LeverPlacehold(50, 50);
     InvisPlatHold invisPlatHold = new InvisPlatHold(75, 20);
     Platform platform12 = new Platform(75, 20);
-
+    Lever2 lever2 = new Lever2(50, 50);
+    DoorwayP1 doorwayP1 = new DoorwayP1();
+    DoorwayP2 doorwayP2 = new DoorwayP2();
+    Player1 player1 = new Player1(30, 40);
+    Player2 player2 = new Player2(30, 40);
+    
+    boolean isPlayer1Dead = false;
+    boolean isPlayer2Dead = false;
+    boolean isPlayer1TouchingDoor = false;
+    boolean isPlayer2TouchingDoor = false;
     /**
      * Constructor for objects of class Level2.
      * 
@@ -27,10 +34,10 @@ public class Level2 extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(900 , 600, 1); 
         levelCurrent = 2;
-        Player1 player1 = new Player1(30, 40);
+        
         addObject(player1, 40, 525);
 
-        Player2 player2 = new Player2(30, 40);
+        
         addObject(player2, 102, 525);
 
         prepare();
@@ -42,7 +49,7 @@ public class Level2 extends World
      */
     private void prepare()
     {
-        
+
         Platform platform = new Platform(400, 30);
         addObject(platform,183,579);
         platform.setLocation(199,585);
@@ -82,15 +89,13 @@ public class Level2 extends World
         Platform platform11 = new Platform(350, 30);
         addObject(platform11,137,205);
         platform11.setLocation(174,265);
-        
+
         addObject(platformGate, 353, 325);
         platformGate.setLocation(353, 325);
 
-        LeverPlacehold leverPlacehold = new LeverPlacehold(50, 50);
         addObject(leverPlacehold,838,518);
         leverPlacehold.setLocation(836,558);
 
-        Lever2 lever2 = new Lever2(50, 50);
         addObject(lever2,272,323);
         lever2.setLocation(310,371);
 
@@ -102,7 +107,6 @@ public class Level2 extends World
         addObject(doorPlaceholder2,120,334);
         doorPlaceholder2.setLocation(87,349);
 
-        
         addObject(invisPlatHold,744,258);
         invisPlatHold.setLocation(668,291);
 
@@ -111,36 +115,46 @@ public class Level2 extends World
         platform13.setLocation(497,302);
 
         platform11.setLocation(176,265);
-        
-        
 
-       
+
+        DoorwayP1 doorwayP1 = new DoorwayP1();
+        addObject(doorwayP1,40,349);
+        DoorwayP2 doorwayP2 = new DoorwayP2();
+        addObject(doorwayP2,107,350);
     }
+
     public void act()
     {
-        leverOn = LeverPlacehold.leverOn;
-        lever2On = Lever2.lever2On;
-        if(leverOn)
+        int totalScore = player1.score + player2.score;
+        showText("Score:" +totalScore, 50, 25);
+        
+        if(leverPlacehold.leverOn)
         {
             removeObject(platformGate);
         
             
         }
-        if(lever2On)
+        if(lever2.lever2On)
         {
             removeObject(invisPlatHold);
             addObject(platform12,744,258);
             platform12.setLocation(668,291);
         }
         
-        boolean player1DeadSpikes = Spikes.player1Dead;
-        boolean player1DeadLethal = Lethal.player1Dead;
-        if(player1DeadLethal == true || player1DeadSpikes == true)
+        
+        if(isPlayer1Dead && isPlayer2Dead)
         {
-            player1DeadLethal = false;
-            player1DeadSpikes = false;
+            
             Greenfoot.setWorld(new DeathScreen());
             
         }
+        
+        
+        if(isPlayer1TouchingDoor  == true && isPlayer1TouchingDoor == true)
+        {
+            Greenfoot.setWorld(new Level2());
+            Greenfoot.playSound("Excellent.mp3");
+        }
+    
     }
 }
