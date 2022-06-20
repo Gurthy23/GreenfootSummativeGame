@@ -8,6 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Lethal extends Actor
 {
+    GreenfootImage image1 = new GreenfootImage("Toxic_Waste/Toxic_water0.png");
+    GreenfootImage image2 = new GreenfootImage("Toxic_Waste/Toxic_water1.png");
+    GreenfootImage image3 = new GreenfootImage("Toxic_Waste/Toxic_water2.png");
+    int frameCounter = 0;
     /**
      * Act - do whatever the Leathal wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -16,11 +20,12 @@ public class Lethal extends Actor
     {
         collideWithPlayer1();
         collideWithPlayer2();
+        
     }   
     public void collideWithPlayer1()
     {
     
-        if(getOneIntersectingObject(Player1.class) != null)
+       if(getOneIntersectingObject(Player1.class) != null)
        {
             Greenfoot.playSound("DeathSound.mp3");
             getWorld().removeObject(getOneIntersectingObject(Player1.class));
