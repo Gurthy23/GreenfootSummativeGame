@@ -10,6 +10,11 @@ public class Player2 extends Actor
 {
     
     static boolean touchingDoorP2 = false;
+    GreenfootImage image1 = new GreenfootImage("BillRunningRight.png");
+    GreenfootImage image2 = new GreenfootImage("BillStandingRight.png");
+    GreenfootImage image3 = new GreenfootImage("BillRunningLeft.png");
+    GreenfootImage image4 = new GreenfootImage("BillStandingLeft.png");
+    int FrameCount = 0;
     
     public Player2(int width, int height)
     {
@@ -26,6 +31,15 @@ public class Player2 extends Actor
     public void act() 
     {
         
+
+        FrameCount++;
+        
+        if (FrameCount == 15)
+        {
+            FrameCount = 0;
+        }
+        PillarCollisionCheck();
+        GateCollisionCheck();
         Gravity();
         CollisionCheck();
         hitCollectable();
@@ -38,10 +52,36 @@ public class Player2 extends Actor
         if(Greenfoot.isKeyDown("a"))
         {
             deltaX = deltaX -6;
+            if (FrameCount == 5)
+            {
+                setImage(image3);
+            }
+            else if (FrameCount == 10)
+            {
+                setImage(image4); 
+            }
+            
+            if (FrameCount == 15)
+            {
+                FrameCount = 0;
+            }
         }    
         if(Greenfoot.isKeyDown("d"))
         {
             deltaX = deltaX +6;
+            if (FrameCount == 5)
+            {
+                setImage(image1);
+            }
+            else if (FrameCount == 10)
+            {
+                setImage(image2); 
+            }
+            
+            if (FrameCount == 15)
+            {
+                FrameCount = 0;
+            }
         }   
         if (InAir == false && Greenfoot.isKeyDown("w"))
         {
@@ -57,7 +97,7 @@ public class Player2 extends Actor
         int height = getImage().getHeight();
         
         Actor platformBottom = getOneObjectAtOffset(0, height / 2, Platform.class);
-        
+        Actor pillarBottom = getOneObjectAtOffset(0, height / 2, Pillar.class);
         if (platformBottom != null)   // if indeed there is platform touching the bottom of the character.
         {
             deltaY = 0;     // Don't apply gravity.
@@ -65,6 +105,13 @@ public class Player2 extends Actor
             
             moveOnTopOfObject(platformBottom);    // Adjust position to just touching platform.
          
+        }
+        else if (pillarBottom != null)
+        {
+            deltaY = 0;     // Don't apply gravity.
+            InAir = false;
+            
+            moveOnTopOfObject(pillarBottom);    // Adjust position to just touching platform.
         }
         else    // No platform below.
         {
@@ -94,6 +141,46 @@ public class Player2 extends Actor
             if (platformTop != null)
             {
                 moveToBottom(platformTop);
+            }
+    }
+    public void GateCollisionCheck()
+    {
+           int width = getImage().getWidth();
+           int height = getImage().getHeight();
+           Actor gateRight = getOneObjectAtOffset(width / 2, 0, Gate.class);
+           Actor gateLeft = getOneObjectAtOffset(-width / 2, 0, Gate.class);
+           Actor gateTop = getOneObjectAtOffset(0, -height / 2, Gate.class);
+           if (gateRight != null)
+            {
+                moveToLeftEdge(gateRight);
+            }
+           if (gateLeft != null)
+            {
+                moveToRightEdge(gateLeft);
+            }
+           if (gateTop != null)
+            {
+               moveToBottom(gateTop);
+            }
+    }
+    public void PillarCollisionCheck()
+    {
+           int width = getImage().getWidth();
+           int height = getImage().getHeight();
+           Actor pillarRight = getOneObjectAtOffset(width / 2, 0, Pillar.class);
+           Actor pillarLeft = getOneObjectAtOffset(-width / 2, 0, Pillar.class);
+           Actor pillarTop = getOneObjectAtOffset(0, -height / 2, Pillar.class);
+           if (pillarRight != null)
+            {
+                moveToLeftEdge(pillarRight);
+            }
+           if (pillarLeft != null)
+            {
+                moveToRightEdge(pillarLeft);
+            }
+           if (pillarTop != null)
+            {
+               moveToBottom(pillarTop);
             }
     }
     public void hitCollectable()

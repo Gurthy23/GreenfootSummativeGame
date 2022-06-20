@@ -20,10 +20,10 @@ public class MyWorld extends World
         super(900 , 600, 1); 
         
         
-        Player1 player1 = new Player1(100,50);
+        Player1 player1 = new Player1(56,63);
         addObject(player1, 300, 240);
         
-        Player2 player2 = new Player2(100,50);
+        Player2 player2 = new Player2(56,63);
         addObject(player2, 400, 240);
         
         Collectable collectable1 = new Collectable();

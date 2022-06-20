@@ -10,7 +10,7 @@ public class Level2 extends World
 {
     boolean leverOn = false;
     boolean lever2On = false;
-    Platform platformGate = new Platform(15, 130);
+    Gate Gategate = new Gate(15, 130);
 
     InvisPlatHold invisPlatHold = new InvisPlatHold(75, 20);
     Platform platform12 = new Platform(75, 20);
@@ -41,14 +41,12 @@ public class Level2 extends World
      */
     private void prepare()
     {
-        
+
         Platform platform = new Platform(400, 30);
         addObject(platform,183,579);
         platform.setLocation(199,585);
 
-        Platform platform2 = new Platform(100, 400);
-        addObject(platform2,803,414);
-        platform2.setLocation(583,406);
+        
 
         Platform platform3 = new Platform(400, 30);
         addObject(platform3,178,336);
@@ -66,9 +64,9 @@ public class Level2 extends World
         addObject(platform7,740,379);
         platform7.setLocation(840,425);
 
-        Platform platform8 = new Platform(30, 800);
-        addObject(platform8,730,311);
-        platform8.setLocation(893,401);
+        Pillar pillar2 = new Pillar(30, 800);
+        addObject(pillar2,730,311);
+        pillar2.setLocation(893,401);
 
         Platform platform9 = new Platform(75, 20);
         addObject(platform9,737,358);
@@ -81,9 +79,7 @@ public class Level2 extends World
         Platform platform11 = new Platform(350, 30);
         addObject(platform11,137,205);
         platform11.setLocation(174,265);
-        
-        addObject(platformGate, 353, 325);
-        platformGate.setLocation(353, 325);
+
 
         LeverPlacehold leverPlacehold = new LeverPlacehold(50, 50);
         addObject(leverPlacehold,838,518);
@@ -101,7 +97,6 @@ public class Level2 extends World
         addObject(doorPlaceholder2,120,334);
         doorPlaceholder2.setLocation(87,349);
 
-        
         addObject(invisPlatHold,744,258);
         invisPlatHold.setLocation(668,291);
 
@@ -110,18 +105,22 @@ public class Level2 extends World
         platform13.setLocation(497,302);
 
         platform11.setLocation(176,265);
-        
-        
 
-       
+        
+        addObject(Gategate,353,325);
+
+        Pillar pillar = new Pillar(110, 400);
+        addObject(pillar,583,405);
+        
     }
+
     public void act()
     {
         leverOn = LeverPlacehold.leverOn;
         lever2On = Lever2.lever2On;
         if(leverOn)
         {
-            removeObject(platformGate);
+            removeObject(Gategate);
         
             
         }
