@@ -9,11 +9,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Lethal extends Actor
 {
 
+    GameLevel level;
 
-    Level2 level;
     protected void addedToWorld(World world)
     {
-        level = (Level2) world;
+        level = (GameLevel) world;
     }
 
     /**

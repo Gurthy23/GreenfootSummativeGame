@@ -16,10 +16,10 @@ public class Player1 extends Actor
     int FrameCount = 0;
 
     boolean touchingDoorP1 = false;
-    Level2 level;
+    GameLevel level;
     protected void addedToWorld(World world)
     {
-        level = (Level2) world;
+        level = (GameLevel) world;
     }
 
     public Player1(int width, int height)

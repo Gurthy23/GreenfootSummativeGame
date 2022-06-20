@@ -12,10 +12,10 @@ public class Spikes extends Actor
     boolean isSpikeUp = false;
 
     
-    Level2 level;
+    GameLevel level;
     protected void addedToWorld(World world)
     {
-        level = (Level2) world;
+        level = (GameLevel) world;
     }
 
     private int spikeTimer = 300;
