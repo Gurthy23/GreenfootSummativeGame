@@ -110,6 +110,8 @@ public class Level2 extends World
         platform13.setLocation(497,302);
 
         platform11.setLocation(176,265);
+        
+        
 
        
     }
@@ -120,8 +122,7 @@ public class Level2 extends World
         if(leverOn)
         {
             removeObject(platformGate);
-            addObject(platform12,744,258);
-            platform12.setLocation(668,291);
+        
             
         }
         if(lever2On)
