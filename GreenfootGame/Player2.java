@@ -1,47 +1,38 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Player2 here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Code for player2 actor
  */
 public class Player2 extends Actor
 {
-    
-
-   
+    //Instantiation of images for player animation
     GreenfootImage image1 = new GreenfootImage("BillRunningRight.png");
     GreenfootImage image2 = new GreenfootImage("BillStandingRight.png");
     GreenfootImage image3 = new GreenfootImage("BillRunningLeft.png");
     GreenfootImage image4 = new GreenfootImage("BillStandingLeft.png");
     int FrameCount = 0;
     
-
     boolean touchingDoorP2 = false;
+    //Allows code to be accessed from other classes
     GameLevel level;
     protected void addedToWorld(World world)
     {
         level = (GameLevel) world;
     }
-
     public Player2(int width, int height)
     {
         getImage().scale(width, height);
     }
+    //Instantiates variable for player movement/score
     int deltaX = 0;
     int deltaY = 0;
     boolean InAir;
     final int gravityVal = 1;
     public int score = 0;
-    /**
-     * Act - do whatever the Player1 wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    //Runs rest of code
     public void act() 
     {
-        
-
+        //FrameCounter
         FrameCount++;
         
         if (FrameCount == 15)
@@ -56,6 +47,7 @@ public class Player2 extends Actor
         movement();
         touchingActor();
     }   
+    //Movement code for player actor to move along with animation
     public void movement()
     {
         deltaX = 0;
@@ -102,6 +94,7 @@ public class Player2 extends Actor
         
         setLocation(getX() + deltaX, getY() + deltaY);
     }
+    //Gravity to increase speed of player falling if from high height 
     public void Gravity()
     {
         int height = getImage().getHeight();
@@ -131,8 +124,8 @@ public class Player2 extends Actor
             }
             InAir = true;
         }
-        
     }
+    //Checks if player is colliding with platform object
     public void CollisionCheck()
     {
            int width = getImage().getWidth();
@@ -148,11 +141,12 @@ public class Player2 extends Actor
             {
                 moveToRightEdge(platformLeft);
             }
-            if (platformTop != null)
+           if (platformTop != null)
             {
                 moveToBottom(platformTop);
             }
     }
+    //Checks if player is colliding with the gate object
     public void GateCollisionCheck()
     {
            int width = getImage().getWidth();
@@ -173,6 +167,7 @@ public class Player2 extends Actor
                moveToBottom(gateTop);
             }
     }
+    //Checks if player is colliding with the gate object
     public void PillarCollisionCheck()
     {
            int width = getImage().getWidth();
@@ -193,6 +188,7 @@ public class Player2 extends Actor
                moveToBottom(pillarTop);
             }
     }
+    //Checks if player has touched a collectable, plays sound and increases score
     public void hitCollectable()
     {
        if(getOneIntersectingObject(Collectable.class) != null)
@@ -202,6 +198,7 @@ public class Player2 extends Actor
            getWorld().removeObject(getOneIntersectingObject(Collectable.class));
        } 
     }
+    //Multiple different checks for if player is touching door or portal
     public void touchingActor()
     {
         int portal1X = Portal1.portal1X;
@@ -230,7 +227,6 @@ public class Player2 extends Actor
         
         // Adjust character position so that its bottom edge is just touching top edge of object.
         setLocation(getX(), object.getY() - objectHeight / 2 - height / 2 + 1); 
-       
     }
     public void moveToBottom(Actor object)
     {
@@ -239,7 +235,6 @@ public class Player2 extends Actor
         
         // Adjust character position so that its bottom edge is just touching top edge of object.
         setLocation(getX(), object.getY() + objectHeight / 2 + height / 2 - 1);  
-       
     }
     public void moveToLeftEdge(Actor object)
     {
@@ -248,7 +243,6 @@ public class Player2 extends Actor
         
         // Adjust character position so that its bottom edge is just touching top edge of object.
         setLocation(object.getX() - objectWidth / 2 - width / 2 + 1,getY()); 
-       
     }
     public void moveToRightEdge(Actor object)
     {
@@ -257,6 +251,5 @@ public class Player2 extends Actor
         
         // Adjust character position so that its bottom edge is just touching top edge of object.
         setLocation(object.getX() + objectWidth / 2 + width / 2 - 1,getY());  
-       
     }
 }

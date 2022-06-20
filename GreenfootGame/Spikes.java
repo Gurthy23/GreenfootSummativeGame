@@ -1,54 +1,50 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Spikes here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Code for spikes
  */
 public class Spikes extends Actor
 {
+    //Instantiation of variables for Spikes
     private String[] imgs_;
     boolean isSpikeUp = false;
 
-    
     GameLevel level;
     protected void addedToWorld(World world)
     {
         level = (GameLevel) world;
     }
-
+    //Instantiation of spikes timer and time length
     private int spikeTimer = 300;
     private int timer = spikeTimer;
-
-    /**
-     * Act - do whatever the Spikes wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    //Code to run spikes going up and down and spike animation
     public void act() 
     {
-        
+        //Decreases every frame
         timer--;
+        //Instantiation of images for spike animation
         imgs_ = new String[4];
-
         for(int i = 0; i <imgs_.length; i++)
         {
             imgs_[i] = "Spike"+i+".png";
             
         }
-         
+        //Checks if timer is up and runs spikeUp code
         if(isSpikeUp==false &&timer<=0)
         {
             isSpikeUp = spikeUp();
         }
+        //Check if timer has run through the timer once more and runs spikeDown
         if(isSpikeUp == true && timer>=0)
         {
             isSpikeUp = spikeDown();
         }
+        //Resets timer
         if(timer<= -spikeTimer)
         {
             timer = spikeTimer;
         }
+        //Checks collision with players
         if(isSpikeUp)
         {
             collideWithPlayer1();
@@ -56,7 +52,7 @@ public class Spikes extends Actor
         }
         //getWorld().showText("spikeTimer:" +timer,300 ,300 ); //Shows the timer for spike
     } 
-    
+    //Code for spike going up, sound and animation
     public boolean spikeUp()
     {
         Greenfoot.playSound("SpikeSound.mp3");
@@ -66,6 +62,7 @@ public class Spikes extends Actor
         }
         return true;
     }
+    //Code for spike going down, sound and animation
     public boolean spikeDown()
     {
         Greenfoot.playSound("SpikeSound2.mp3");
@@ -75,6 +72,7 @@ public class Spikes extends Actor
         }
         return false;
     }
+    //Checking collision with player1
     public void collideWithPlayer1()
     {
         if(getOneIntersectingObject(Player1.class) != null)
@@ -84,6 +82,7 @@ public class Spikes extends Actor
             level.isPlayer1Dead = true;
         } 
     }
+    //Checking collision with player2
     public void collideWithPlayer2()
     {
         if(getOneIntersectingObject(Player2.class) != null)

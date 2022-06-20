@@ -2,24 +2,21 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Collectable here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Code for the coin collectable 
  */
 public class Collectable extends Actor
 {
+    //Instantiates the images for the coin animation
     GreenfootImage image1 = new GreenfootImage("Coin/sprite_collectable0.png");
     GreenfootImage image2 = new GreenfootImage("Coin/sprite_collectable1.png");
 
     GreenfootImage image3 = new GreenfootImage("Coin/sprite_collectable2.png");
     GreenfootImage image4 = new GreenfootImage("Coin/sprite_collectable3.png");
 
-    
+    //Sets frame counter to 0
     int frameCounter = 0;
     /**
-     * Act - do whatever the Collectable wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Code for animation
      */
     public void act() 
     {
