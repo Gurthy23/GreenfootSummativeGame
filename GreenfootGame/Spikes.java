@@ -65,7 +65,7 @@ public class Spikes extends Actor
         if(getOneIntersectingObject(Player1.class) != null)
         {
             Greenfoot.playSound("DeathSound.mp3");
-            getWorld().removeObject(getOneIntersectingObject(Player1.class));
+            Greenfoot.setWorld(new Level2());
         } 
     }
     public void collideWithPlayer2()
@@ -73,7 +73,7 @@ public class Spikes extends Actor
         if(getOneIntersectingObject(Player2.class) != null)
         {
             Greenfoot.playSound("DeathSound.mp3");
-            getWorld().removeObject(getOneIntersectingObject(Player2.class));
+            Greenfoot.setWorld(new Level2());
         } 
     } 
 }
