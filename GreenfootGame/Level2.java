@@ -156,7 +156,7 @@ public class Level2 extends GameLevel
         }
         
         //If players make it to door then sets next level and plays excellent sound
-        if(isPlayer1TouchingDoor  == true && isPlayer1TouchingDoor == true)
+        if(isPlayer1TouchingDoor  == true && isPlayer2TouchingDoor == true)
         {
             Greenfoot.setWorld(new Level2());
             Greenfoot.playSound("Excellent.mp3");
