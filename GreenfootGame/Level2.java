@@ -10,15 +10,12 @@
     boolean lever2On = false;
     Gate Gategate = new Gate(15, 130);
 
-
-    public static int levelCurrent;
-    
     LeverPlacehold leverPlacehold = new LeverPlacehold(50, 50);
-
+    
     InvisPlatHold invisPlatHold = new InvisPlatHold(75, 20);
     Platform platform12 = new Platform(75, 20);
     Lever2 lever2 = new Lever2(50, 50);
-    
+   
     /**
      * Constructor for objects of class Level2.
      * 
@@ -29,7 +26,7 @@
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(900 , 600, 1); 
-        levelCurrent = 2;
+        
         //Adds player objects
         addObject(player1, 40, 525);
 
@@ -152,7 +149,8 @@
     }
     public void act()
     {
-        //Checks player scroe
+    
+       //Checks player scroe
         int totalScore = player1.score + player2.score;
         //Displays score
         showText("Score:" +totalScore, 50, 25);
@@ -173,22 +171,23 @@
         }
         
         //If players are dead sets death screen
-        if(isPlayer1Dead && isPlayer2Dead)
+        if(isPlayer1Dead || isPlayer2Dead)
         {
             
-            Greenfoot.setWorld(new DeathScreen());
+            Greenfoot.setWorld(new DeathScreen(2));
             
         }
             
         //If players make it to door then sets next level and plays excellent sound
         if(isPlayer1TouchingDoor  == true && isPlayer2TouchingDoor == true)
         {
+            
             Greenfoot.setWorld(new Level2());
             Greenfoot.playSound("Excellent.mp3");
         }
         if(Greenfoot.isKeyDown("r"))
         {
-            Greenfoot.setWorld(new DeathScreen());
+            Greenfoot.setWorld(new DeathScreen(2));
         }
     }
 }

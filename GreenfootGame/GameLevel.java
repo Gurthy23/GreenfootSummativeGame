@@ -17,6 +17,7 @@ public class GameLevel extends World
     boolean isPlayer2Dead = false;
     boolean isPlayer1TouchingDoor = false;
     boolean isPlayer2TouchingDoor = false;
+    
     /**
      * Constructor for objects of class GameLevel.
      * 
@@ -26,4 +27,5 @@ public class GameLevel extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(width, height, cellSize); 
     }
+    
 }
