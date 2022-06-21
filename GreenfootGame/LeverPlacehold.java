@@ -1,13 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class LeverPlacehold here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Code for lever
  */
 public class LeverPlacehold extends Actor
 {
+    //Instantiates variables and images for lever
     public boolean leverOn = false;
     GreenfootImage image1 = new GreenfootImage("Lever0.png");
     GreenfootImage image2 = new GreenfootImage("Lever1.png");
@@ -19,11 +17,6 @@ public class LeverPlacehold extends Actor
     {
         getImage().scale(width, height);
     }
-    
-    /**
-     * Act - do whatever the LeverPlacehold wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act() 
     {
         collideWithPlayer();
@@ -31,6 +24,8 @@ public class LeverPlacehold extends Actor
     }
     public void collideWithPlayer()
     {
+        //If collides with either player then switches lever image and 
+        //sets lever2On to true
         if(getOneIntersectingObject(Player1.class) != null || getOneIntersectingObject(Player2.class) != null)
         {
             
@@ -40,7 +35,7 @@ public class LeverPlacehold extends Actor
             buttonSoundEffect();
         } 
     }
-    
+    //Plays lever sound
     public void buttonSoundEffect()
     {
         if(!soundHasPlayed)

@@ -1,11 +1,10 @@
 #BlueJ class context
 comment0.target=Lethal
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Leathal\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\nKills\ player\ if\ touched\r\n
 comment1.params=world
 comment1.target=void\ addedToWorld(greenfoot.World)
 comment2.params=width\ height
 comment2.target=Lethal(int,\ int)
-comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Leathal\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment3.params=
 comment3.target=void\ act()
 comment4.params=

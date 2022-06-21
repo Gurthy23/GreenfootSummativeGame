@@ -1,10 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class InvisPlatHold here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Invisible platfor activated by lever
  */
 public class InvisPlatHold extends Actor
 {

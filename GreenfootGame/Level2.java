@@ -1,14 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Level2 here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Code for the level 2 world
  */
 public class Level2 extends GameLevel
 {
-
+    //Instantiating objects and variables 
     boolean leverOn = false;
     boolean lever2On = false;
     Gate Gategate = new Gate(15, 130);
@@ -33,7 +30,7 @@ public class Level2 extends GameLevel
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(900 , 600, 1); 
         levelCurrent = 2;
-        
+        //Adds player objects
         addObject(player1, 40, 525);
 
         
@@ -48,7 +45,7 @@ public class Level2 extends GameLevel
      */
     private void prepare()
     {
-
+        //Added platforms to world
         Platform platform = new Platform(400, 30);
         addObject(platform,183,579);
         platform.setLocation(199,585);
@@ -130,15 +127,19 @@ public class Level2 extends GameLevel
 
     public void act()
     {
+        //Checks player scroe
         int totalScore = player1.score + player2.score;
+        //Displays score
         showText("Score:" +totalScore, 50, 25);
         
+        //Checks if lever is on and removes gate if it is
         if(leverPlacehold.leverOn)
         {
             removeObject(Gategate);
         
             
         }
+        //Checks if lever is on and places platform
         if(lever2.lever2On)
         {
             removeObject(invisPlatHold);
@@ -146,7 +147,7 @@ public class Level2 extends GameLevel
             platform12.setLocation(668,291);
         }
         
-        
+        //If players are dead sets death screen
         if(isPlayer1Dead && isPlayer2Dead)
         {
             
@@ -154,7 +155,7 @@ public class Level2 extends GameLevel
             
         }
         
-        
+        //If players make it to door then sets next level and plays excellent sound
         if(isPlayer1TouchingDoor  == true && isPlayer1TouchingDoor == true)
         {
             Greenfoot.setWorld(new Level2());

@@ -8,12 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Portal2 extends Actor
 {
+    //Instantiates variables for portals location
     public static int portal2X;
     public static int portal2Y;
-    /**
-     * Act - do whatever the Portal1 wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    //Tracks portal location to be called upon in either player codes
     public void act() 
     {
         Actor portal2 = (Actor)getWorld().getObjects(Portal2.class).get(0);

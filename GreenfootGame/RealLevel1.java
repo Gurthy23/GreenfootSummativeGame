@@ -1,12 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class RealLevel1 here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Code for level
  */
-public class RealLevel1 extends World
+public class RealLevel1 extends GameLevel
 {
     boolean leverOn = false;
     /**
@@ -23,7 +20,7 @@ public class RealLevel1 extends World
         
         Player2 player2 = new Player2(30, 40);
         addObject(player2, 470, 550);
-
+    
         prepare();
         
     }
@@ -53,6 +50,4 @@ public class RealLevel1 extends World
         
         
     }    
-    
-    
 }

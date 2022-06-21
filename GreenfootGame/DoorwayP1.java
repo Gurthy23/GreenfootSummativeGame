@@ -1,10 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Doorway here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Door for player1
  */
 public class DoorwayP1 extends Actor
 {

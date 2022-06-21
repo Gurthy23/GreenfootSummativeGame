@@ -1,10 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Pillar here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Pillar object
  */
 public class Pillar extends Actor
 {

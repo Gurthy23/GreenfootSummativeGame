@@ -1,10 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Gate here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Gate activated by lever
  */
 public class Gate extends Actor
 {
