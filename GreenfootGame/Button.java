@@ -48,6 +48,7 @@ public class Button extends Actor
             setImage(image1);
             soundHasPlayed = false;
             playSound = false;
+            buttonOn = false;
         }
     }   
     protected void addedToWorld(World world)
