@@ -10,6 +10,10 @@ public class Spikes extends Actor
     boolean isSpikeUp = false;
 
     GameLevel level;
+    public Spikes(int width, int height)
+    {
+        getImage().scale(width, height);
+    }
     protected void addedToWorld(World world)
     {
         level = (GameLevel) world;

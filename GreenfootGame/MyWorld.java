@@ -53,10 +53,10 @@ public class MyWorld extends World
         Portal2 portal2 = new Portal2();
         addObject(portal2, 200, 100);
         
-        Button button = new Button();
+        Button button = new Button(30,30);
         addObject(button, 850, 240);
         
-        Spikes spikes = new Spikes();
+        Spikes spikes = new Spikes(30,30);
         addObject(spikes,100,240);
     }
     public void act()

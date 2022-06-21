@@ -6,8 +6,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Button extends Actor
 {
     
-    MyWorld world;
+    GameLevel world;
     //Instantiates sound variables
+    boolean buttonOn = false;
     boolean playSound = false;
     boolean soundHasPlayed = false;
    
@@ -15,36 +16,43 @@ public class Button extends Actor
     GreenfootImage image1 = new GreenfootImage("Button0.png");
     GreenfootImage image2 = new GreenfootImage("Button1.png");
 
+    public Button(int width, int height)
+    {
+        getImage().scale(width, height);
+    }
     /**
          
      */
     public void act() 
     {
         //If either player is touching the button then its set to true
+        collideWithPlayer();
         //And rest of code is for if player isn't touching button
-        if (isTouching(Player1.class) || isTouching(Player2.class))
+        
+        
+
+    }
+    public void collideWithPlayer()
+    {
+        
+        if(getOneIntersectingObject(Player1.class) != null || getOneIntersectingObject(Player2.class) != null)
         {
             playSound = true;
-            world.portal1.setLocation(600, 400);
+            buttonOn = true;
             setImage(image2);
+            
+            buttonSoundEffect();
         }
-    
         else
         {
             setImage(image1);
             soundHasPlayed = false;
             playSound = false;
         }
-        //Runs buttonSoundEffect code if playSound = true
-        if (playSound)
-        {
-            buttonSoundEffect();
-        }
-
-    } 
+    }   
     protected void addedToWorld(World world)
     {
-        this.world = (MyWorld)world;
+        this.world = (GameLevel)world;
     }
     public void buttonSoundEffect()
     {
