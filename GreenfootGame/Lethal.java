@@ -10,10 +10,10 @@ public class Lethal extends Actor
 {
 
 
-    Level2 level;
+    RealLevel1 level;
     protected void addedToWorld(World world)
     {
-        level = (Level2) world;
+        level = (RealLevel1) world;
     }
 
     /**

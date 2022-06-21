@@ -58,6 +58,7 @@ public class MyWorld extends World
         
         Spikes spikes = new Spikes();
         addObject(spikes,100,240);
+        //
     }
     public void act()
     {
