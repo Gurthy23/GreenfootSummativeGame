@@ -117,11 +117,11 @@
         removeObject(doorPlaceholder);
         doorwayP1.setLocation(76,356);
         doorwayP2.setLocation(25,356);
-        Spikes spikes = new Spikes();
+        Spikes spikes = new Spikes(30,30);
         addObject(spikes,544,189);
-        Spikes spikes2 = new Spikes();
+        Spikes spikes2 = new Spikes(30,30);
         addObject(spikes2,576,189);
-        Spikes spikes3 = new Spikes();
+        Spikes spikes3 = new Spikes(30,30);
         addObject(spikes3,621,189);
         removeObject(spikes2);
         Collectable collectable = new Collectable();
@@ -144,13 +144,13 @@
         addObject(collectable4,581,192);
 
         collectable.setLocation(672,560);
-        Spikes spikes4 = new Spikes();
+        Spikes spikes4 = new Spikes(30,30);
         addObject(spikes4,672,560);
     }
     public void act()
     {
     
-       //Checks player scroe
+        //Checks player score
         int totalScore = player1.score + player2.score;
         //Displays score
         showText("Score:" +totalScore, 50, 25);
@@ -182,9 +182,10 @@
         if(isPlayer1TouchingDoor  == true && isPlayer2TouchingDoor == true)
         {
             
-            Greenfoot.setWorld(new Level2());
+            Greenfoot.setWorld(new Level3());
             Greenfoot.playSound("Excellent.mp3");
         }
+        //Reset Bututon
         if(Greenfoot.isKeyDown("r"))
         {
             Greenfoot.setWorld(new DeathScreen(2));

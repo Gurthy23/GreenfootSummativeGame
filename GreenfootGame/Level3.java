@@ -145,7 +145,7 @@ public class Level3 extends GameLevel
         FastSpikes fastSpikes3 = new FastSpikes();
         addObject(fastSpikes3,571,217);
 
-        Spikes spikes = new Spikes();
+        Spikes spikes = new Spikes(30,30);
         addObject(spikes,821,312);
 
         FastSpikes fastspikes4 = new FastSpikes();
@@ -154,22 +154,22 @@ public class Level3 extends GameLevel
         FastSpikes fastSpikes4 = new FastSpikes();
         addObject(fastSpikes4,887,312);
 
-        Spikes spikes2 = new Spikes();
+        Spikes spikes2 = new Spikes(30,30);
         addObject(spikes2,512,545);
 
-        Spikes spikes3 = new Spikes();
+        Spikes spikes3 = new Spikes(30,30);
         addObject(spikes3,544,545);
 
-        Spikes spikes4 = new Spikes();
+        Spikes spikes4 = new Spikes(30,30);
         addObject(spikes4,576,545);
 
-        Spikes spikes5 = new Spikes();
+        Spikes spikes5 = new Spikes(30,30);
         addObject(spikes5,679,545);
 
-        Spikes spikes6 = new Spikes();
+        Spikes spikes6 = new Spikes(30,30);
         addObject(spikes6,609,545);
 
-        Spikes spikes7 = new Spikes();
+        Spikes spikes7 = new Spikes(30,30);
         addObject(spikes7,643,545);
 
         FastSpikes fastSpikes6 = new FastSpikes();
@@ -181,10 +181,10 @@ public class Level3 extends GameLevel
         FastSpikes fastSpikes8 = new FastSpikes();
         addObject(fastSpikes8,91,382);
 
-        Spikes spikes8 = new Spikes();
+        Spikes spikes8 = new Spikes(30,30);
         addObject(spikes8,124,382);
 
-        Spikes spikes9 = new Spikes();
+        Spikes spikes9 = new Spikes(30,30);
         addObject(spikes9,161,382);
 
         Lethal lethal4 = new Lethal(30, 10);
@@ -193,7 +193,7 @@ public class Level3 extends GameLevel
         Lethal lethal5 = new Lethal(30, 10);
         addObject(lethal5,113,166);
 
-        Spikes spikes10 = new Spikes();
+        Spikes spikes10 = new Spikes(30,30);
         addObject(spikes10,80,153);
         
         Collectable collectable = new Collectable();
@@ -253,16 +253,20 @@ public class Level3 extends GameLevel
         if(isPlayer1Dead || isPlayer2Dead)
         {
 
-            Greenfoot.setWorld(new DeathScreen());
+            Greenfoot.setWorld(new DeathScreen(3));
 
         }
 
         //If players make it to door then sets win screen and plays excellent sound
         if(isPlayer1TouchingDoor  == true && isPlayer1TouchingDoor == true)
         {
-            Greenfoot.setWorld(new Level2());
+            Greenfoot.setWorld(new YouWin());
             Greenfoot.playSound("Excellent.mp3");
         }
-
+        //Reset button
+        if(Greenfoot.isKeyDown("r"))
+        {
+            Greenfoot.setWorld(new DeathScreen(3));
+        }
     }
 }

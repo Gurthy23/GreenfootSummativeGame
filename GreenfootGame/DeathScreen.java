@@ -28,7 +28,7 @@ public class DeathScreen extends World
         {
             if(currentLevel == 1)
             {
-                //Greenfoot.setWorld(new RealLevel1());   
+                Greenfoot.setWorld(new RealLevel1());   
             }
             
             //Sets level to level 2
@@ -39,7 +39,7 @@ public class DeathScreen extends World
 
             if(currentLevel == 3)
             {
-                //Greenfoot.setWorld(new Level2());
+                Greenfoot.setWorld(new Level3());
 
             }
         }

@@ -8,8 +8,7 @@ public class RealLevel1 extends GameLevel
     boolean leverOn = false;
     
     Gate gate1 = new Gate(10,150);
-    Player1 player1 = new Player1(30, 40);
-    Player2 player2 = new Player2(30, 40);
+    
     LeverPlacehold lever1 = new LeverPlacehold(30,30);
     Button button1 = new Button(30,30);
     InvisPlatHold invisPlat1 = new InvisPlatHold(100,25);
@@ -116,6 +115,12 @@ public class RealLevel1 extends GameLevel
   
     public void act()
     {
+        
+        //Checks player score
+        int totalScore = player1.score + player2.score;
+        //Displays score
+        showText("Score:" +totalScore, 50, 25);
+        
         //if player is on lever, gate dissapears.
         if(lever1.leverOn)
         {
@@ -137,10 +142,10 @@ public class RealLevel1 extends GameLevel
             invisPlat1.setLocation(300,400);
         }
         //If players are dead sets death screen
-        if(isPlayer1Dead && isPlayer2Dead)
+        if(isPlayer1Dead || isPlayer2Dead)
         {
             
-            Greenfoot.setWorld(new DeathScreen());
+            Greenfoot.setWorld(new DeathScreen(1));
             
         }
         
@@ -150,6 +155,10 @@ public class RealLevel1 extends GameLevel
             Greenfoot.setWorld(new Level2());
             Greenfoot.playSound("Excellent.mp3");
         }
-    
+        //Reset button
+        if(Greenfoot.isKeyDown("r"))
+        {
+            Greenfoot.setWorld(new DeathScreen(1));
+        }
     }
 }
