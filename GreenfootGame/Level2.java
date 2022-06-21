@@ -148,7 +148,7 @@ public class Level2 extends GameLevel
         }
         
         //If players are dead sets death screen
-        if(isPlayer1Dead && isPlayer2Dead)
+        if(isPlayer1Dead || isPlayer2Dead)
         {
             
             Greenfoot.setWorld(new DeathScreen());

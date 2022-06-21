@@ -32,6 +32,11 @@ public class DeathScreen extends World
             {
                 Greenfoot.setWorld(new Level2());
             }
+            //Sets level back to level 3
+            if(levelCurrent == 3)
+            {
+                Greenfoot.setWorld(new Level3());
+            }
         }
     }
 }
