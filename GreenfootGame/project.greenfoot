@@ -1,5 +1,5 @@
 #Greenfoot project file
-class.Button.image=blue-draught.png
+class.Button.image=Button0.png
 class.Collectable.image=sprite_collectable0.png
 class.DoorPlaceholder.image=DoorPlacehold.png
 class.DoorwayP1.image=TedPhone.png
@@ -19,4 +19,6 @@ class.Player1.image=TedStand.png
 class.Player2.image=BillStandingRight.png
 class.Portal1.image=portal1.png
 class.Portal2.image=portal0.png
+class.RealLevel1.image=d9bi0dd-0815e4da-3428-409f-b05c-da4eb3b2ceef.png
 class.Spikes.image=Spike0.png
+
