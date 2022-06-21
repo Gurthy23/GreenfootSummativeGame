@@ -208,7 +208,7 @@ public class Player2 extends Actor
         touchingDoorP2 = false;
         if(isTouching(DoorwayP2.class))
         {
-            level.isPlayer1TouchingDoor = true;
+            level.isPlayer2TouchingDoor = true;
         }
         if(isTouching(Portal1.class))
         {
